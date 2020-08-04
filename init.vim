@@ -130,6 +130,7 @@ source $VIM_PATH/plugins/all.vim
 source $VIM_PATH/general.vim
 source $VIM_PATH/bindings.vim
 source $VIM_PATH/theme.vim
+source $VIM_PATH/plugins/defx.vim
 
 " }}}
 " vim: set foldmethod=marker ts=2 sw=2 tw=80 noet :

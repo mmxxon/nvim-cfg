@@ -4,7 +4,7 @@ Plug 'junegunn/vim-plug'
 
 Plug 'vim-airline/vim-airline'
 Plug 'neoclide/coc.nvim', {'branch': 'release', 'do' : 'source $VIM_PATH/plugins/coc.vim' }
-Plug 'Shougo/defx.nvim', { 'on' : 'Defx', 'do' : ':UpdateRemotePlugins && source $VIM_PATH/plugins/defx.vim' }
+Plug 'Shougo/defx.nvim', { 'on' : 'Defx', 'do' : ':UpdateRemotePlugins' }
 Plug 'junegunn/goyo.vim', { 'on' : 'Goyo', 'do' : 'source $VIM_PATH/plugins/goyo.vim' }
 
 " }}}
