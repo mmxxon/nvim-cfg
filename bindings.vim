@@ -2,8 +2,8 @@
 
 nnoremap <silent><Up>    :resize +1<CR>
 nnoremap <silent><Down>  :resize -1<CR>
-nnoremap <silent><Left>  :vertical resize +1<CR>
-nnoremap <silent><Right> :vertical resize -1<CR>
+nnoremap <silent><Right> :vertical resize +1<CR>
+nnoremap <silent><Left>  :vertical resize -1<CR>
 
 " }}}
 " Folds {{{
