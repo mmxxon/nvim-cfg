@@ -3,8 +3,8 @@ Plug 'junegunn/vim-plug'
 " Look {{{
 
 Plug 'vim-airline/vim-airline'
-Plug 'neoclide/coc.nvim', {'branch': 'release', 'do' : 'source $VIM_PATH/plugins/coc.vim' }
-Plug 'Shougo/defx.nvim', { 'on' : 'Defx', 'do' : ':UpdateRemotePlugins' }
+" Plug 'neoclide/coc.nvim', {'branch': 'release', 'do' : 'source $VIM_PATH/plugins/coc.vim' }
+" Plug 'Shougo/defx.nvim', { 'on' : 'Defx', 'do' : ':UpdateRemotePlugins' }
 Plug 'junegunn/goyo.vim', { 'on' : 'Goyo', 'do' : 'source $VIM_PATH/plugins/goyo.vim' }
 
 " }}}
@@ -36,12 +36,23 @@ Plug 'joshdick/onedark.vim'
 Plug 'AlessandroYorba/Sierra'
 Plug 'liuchengxu/space-vim-theme'
 Plug 'jacoborus/tender.vim'
+Plug 'prabirshrestha/asyncomplete.vim'
 
 " Airline
 Plug 'vim-airline/vim-airline-themes'
 
 " }}}
-" Filetype related {{{
+" Language {{{
+
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'prabirshrestha/asyncomplete-file.vim'
+Plug 'prabirshrestha/asyncomplete-buffer.vim'
+Plug 'prabirshrestha/asyncomplete-tags.vim'
+Plug 'prabirshrestha/asyncomplete-necosyntax.vim'
+Plug 'Shougo/neco-syntax'
 
 " Python {{{
 

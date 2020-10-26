@@ -12,6 +12,7 @@ set formatoptions-=t
 set formatoptions-=o
 set virtualedit=block
 set synmaxcol=2500
+set autoread
 
 " }}}
 " Editor UI {{{
@@ -36,6 +37,7 @@ set linebreak
 set breakat=\ \	;:,!?
 set nostartofline
 set whichwrap+=h,l,<,>,[,],~
+set shortmess+=c
 
 set tags=./tags
 
@@ -89,7 +91,7 @@ augroup END
 set timeout ttimeout
 set timeoutlen=500
 set ttimeoutlen=10
-set updatetime=200 
+set updatetime=200
 set redrawtime=1500
 
 " }}}

@@ -27,8 +27,6 @@ let $VIM_PATH =
 
 if has('vim_starting')
 
-" }}}
-
 	" leader keys
 	let g:mapleader="\<Space>"
 	let g:maplocalleader=';'
@@ -130,7 +128,9 @@ source $VIM_PATH/plugins/all.vim
 source $VIM_PATH/general.vim
 source $VIM_PATH/bindings.vim
 source $VIM_PATH/theme.vim
-source $VIM_PATH/plugins/defx.vim
+source $VIM_PATH/plugins/lsp.vim
+source $VIM_PATH/plugins/asyncomplete.vim
 
 " }}}
+
 " vim: set foldmethod=marker ts=2 sw=2 tw=80 noet :
