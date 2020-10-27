@@ -7,6 +7,8 @@ Plug 'vim-airline/vim-airline'
 " Plug 'Shougo/defx.nvim', { 'on' : 'Defx', 'do' : ':UpdateRemotePlugins' }
 Plug 'junegunn/goyo.vim', { 'on' : 'Goyo', 'do' : 'source $VIM_PATH/plugins/goyo.vim' }
 Plug 'deris/vim-shot-f'
+Plug 'norcalli/nvim-colorizer.lua'
+Plug 'mhinz/vim-startify'
 
 " }}}
 " Perfomance {{{
@@ -21,8 +23,9 @@ Plug 'vimwiki/vimwiki' ", { 'on' : [] }
 " Plug 'ludovicchabant/vim-gutentags' Not working
 Plug 'prabirshrestha/async.vim', { 'on' : [] } ", { 'for' : [ 'python', 'cpp' ] }
 Plug 'stackline/vim-asynctags', { 'on' : [] } ", { 'for' : [ 'python', 'cpp' ] }
-
-Plug 'norcalli/nvim-colorizer.lua'
+Plug 'andymass/vim-matchup'
+Plug 'jiangmiao/auto-pairs'
+Plug 'kien/ctrlp.vim'
 
 " }}}
 " Colorschemes {{{
@@ -53,6 +56,11 @@ Plug 'prabirshrestha/asyncomplete-file.vim'
 Plug 'prabirshrestha/asyncomplete-buffer.vim'
 Plug 'prabirshrestha/asyncomplete-tags.vim'
 Plug 'prabirshrestha/asyncomplete-necosyntax.vim'
+if has('python3')
+    Plug 'SirVer/ultisnips'
+    Plug 'honza/vim-snippets'
+    Plug 'prabirshrestha/asyncomplete-ultisnips.vim'
+endif
 Plug 'Shougo/neco-syntax'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
@@ -62,6 +70,9 @@ Plug 'airblade/vim-gitgutter'
 Plug 'vim-python/python-syntax', { 'on' : [] } " , 'for' : 'python' }
 
 " }}}
+" Misc {{{
+
+Plug 'JamshedVesuna/vim-markdown-preview'
 
 " }}}`
 

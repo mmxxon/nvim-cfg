@@ -15,12 +15,10 @@ endif
 " Directories {{{
 
 " Data path
-let $DATA_PATH =
-	\ expand(($XDG_CACHE_HOME ? $XDG_CACHE_HOME : '~/.cache') . '/nvim')
+let $DATA_PATH = expand(($XDG_CACHE_HOME ? $XDG_CACHE_HOME : '~/.cache') . '/nvim')
 
 " Vim path
-let $VIM_PATH =
-	\ expand(($XDG_CONFIG_HOME ? $XDG_CONFIG_HOME : '~/.config') . '/nvim')
+let $VIM_PATH = expand(($XDG_CONFIG_HOME ? $XDG_CONFIG_HOME : '~/.config') . '/nvim')
 
 " }}}
 " On start {{{
@@ -68,37 +66,10 @@ if has('vim_starting')
 endif
 
 " }}}
-" Functions {{{
-
-" Source files
-function! s:source_file(path, ...)
-
-	" Source user configuration files with set/global sensitivity
-	let use_global = get(a:000, 0, ! has('vim_starting'))
-	let abspath = resolve($VIM_PATH . '/' . a:path)
-	if ! use_global
-		execute 'source' fnameescape(abspath)
-		return
-	endif
-
-	let tempfile = tempname()
-	let content = map(readfile(abspath),
-		\ "substitute(v:val, '^\\W*\\zsset\\ze\\W', 'setglobal', '')")
-	try
-		call writefile(content, tempfile)
-		execute printf('source %s', fnameescape(tempfile))
-	finally
-		if filereadable(tempfile)
-			call delete(tempfile)
-		endif
-	endtry
-endfunction
-
-" }}}
 " Plugins {{{
 
 call plug#begin(system('echo -n "${XDG_CACHE_HOME:-$HOME/.cache}/nvim/plugged"'))
-call s:source_file('/plugins.vim')
+source $VIM_PATH/plugins.vim
 call plug#end()
 
 
