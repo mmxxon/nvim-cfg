@@ -26,6 +26,7 @@ Plug 'stackline/vim-asynctags', { 'on' : [] } ", { 'for' : [ 'python', 'cpp' ] }
 Plug 'andymass/vim-matchup'
 Plug 'jiangmiao/auto-pairs'
 Plug 'kien/ctrlp.vim'
+Plug 'AndrewRadev/linediff.vim'
 
 " }}}
 " Colorschemes {{{

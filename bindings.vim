@@ -34,10 +34,16 @@ endif
 " }}}
 " Annoying commands {{{
 
+" Close by simply q
 nnoremap q :wq<CR>
-nnoremap <C-S> :w<CR>
 xnoremap q :wq<CR>
-xnoremap <C-S> :w<CR>
+nnoremap <c-s> :w<CR>
+xnoremap <C-S> :<C-U>w<CR>gv
+cnoremap <C-S> :<C-U>w<CR>
+
+" Re-select blocks after indenting in visual/select mode
+xnoremap < <gv
+xnoremap > >gv|
 
 " }}}
 " Code edit {{{

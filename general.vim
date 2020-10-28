@@ -13,6 +13,8 @@ set formatoptions-=o
 set virtualedit=block
 set synmaxcol=2500
 set autoread
+set scrolloff=5
+set sidescrolloff=6
 
 " }}}
 " Editor UI {{{
