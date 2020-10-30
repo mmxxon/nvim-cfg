@@ -45,6 +45,8 @@ set synmaxcol=2500		" Maximum column to match syntax
 set autoread					" Write file if it has changed outside vim
 set clipboard& clipboard+=unnamedplus " System clipboard
 set termguicolors			" Colors
+set scrolloff=5
+set sidescrolloff=6
 
 set number						" Enables line numbers
 set numberwidth=2			" Default size of numbers field
@@ -144,6 +146,11 @@ Plug 'vimwiki/vimwiki' ", { 'on' : [] }
 
 Plug 'prabirshrestha/async.vim', { 'on' : [] } ", { 'for' : [ 'python', 'cpp' ] }
 Plug 'stackline/vim-asynctags', { 'on' : [] } ", { 'for' : [ 'python', 'cpp' ] }
+Plug 'andymass/vim-matchup'
+Plug 'jiangmiao/auto-pairs'
+Plug 'kien/ctrlp.vim'
+Plug 'AndrewRadev/linediff.vim'
+
 
 Plug 'norcalli/nvim-colorizer.lua'
 
@@ -358,6 +365,17 @@ nnoremap [e :cprev<CR>
 " Move throught unneded whitespaces
 nnoremap ]w :NextTrailingWhitespace<CR>
 nnoremap [w :PrevTrailingWhitespace<CR>
+
+" Close by simply q
+nnoremap q :wq<CR>
+xnoremap q :wq<CR>
+nnoremap <c-s> :w<CR>
+xnoremap <C-S> :<C-U>w<CR>gv
+cnoremap <C-S> :<C-U>w<CR>
+
+" Re-select blocks after indenting in visual/select mode
+xnoremap < <gv
+xnoremap > >gv|
 
 nnoremap <silent> <Leader>cw :<C-u>silent! keeppatterns %substitute/\s\+$//e<CR>
 
