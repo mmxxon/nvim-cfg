@@ -1,8 +1,3 @@
-" by xon-dev
-" Mostly use rafi/vim-config
-"
-" ---------------------------
-
 " Vim Plug {{{
 
 if ! filereadable(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/plug.vim"'))
@@ -27,15 +22,10 @@ if has('vim_starting')
 
 	" leader keys
 	let g:mapleader="\<Space>"
-	let g:maplocalleader=';'
 
 	" Remove mappings on leader keys
 	nnoremap <Space>  <Nop>
 	xnoremap <Space>  <Nop>
-	nnoremap ,        <Nop>
-	xnoremap ,        <Nop>
-	nnoremap ;        <Nop>
-	xnoremap ;        <Nop>
 
 	" System clipboard
 	if has('clipboard')
@@ -53,7 +43,7 @@ if has('vim_starting')
 
 	" Check directories
 	for s:path in [ $DATA_PATH, $DATA_PATH . '/undo', $DATA_PATH . '/backup',
-				\ $DATA_PATH . '/session', $DATA_PATH . '/spell' ]
+				\ $DATA_PATH . '/session', $DATA_PATH . '/spell', $DATA_PATH . '/tags' ]
 		if ! isdirectory(s:path)
 			call mkdir(s:path, 'p')
 		endif
@@ -97,10 +87,9 @@ let g:loaded_netrwFileHandlers = 1
 
 source $VIM_PATH/plugins/all.vim
 source $VIM_PATH/general.vim
-source $VIM_PATH/bindings.vim
+source $VIM_PATH/plugins/coc.vim
 source $VIM_PATH/theme.vim
-source $VIM_PATH/plugins/lsp.vim
-source $VIM_PATH/plugins/asyncomplete.vim
+source $VIM_PATH/bindings.vim
 
 " }}}
 

@@ -3,30 +3,45 @@ Plug 'junegunn/vim-plug'
 " Look {{{
 
 Plug 'vim-airline/vim-airline'
-" Plug 'neoclide/coc.nvim', {'branch': 'release', 'do' : 'source $VIM_PATH/plugins/coc.vim' }
-" Plug 'Shougo/defx.nvim', { 'on' : 'Defx', 'do' : ':UpdateRemotePlugins' }
-Plug 'junegunn/goyo.vim', { 'on' : 'Goyo', 'do' : 'source $VIM_PATH/plugins/goyo.vim' }
+Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 Plug 'deris/vim-shot-f'
 Plug 'norcalli/nvim-colorizer.lua'
 Plug 'mhinz/vim-startify'
+Plug 'Yggdroot/indentLine'
+Plug 'luochen1990/rainbow'
+Plug 'romainl/vim-cool'
+" Plug 'haya14busa/vim-asterisk'
 
 " }}}
 " Perfomance {{{
 
-Plug 'xon-dev/diffconflicts'
+Plug 'xon-dev/diffconflicts', { 'on': [ 'DiffConflicts', 'DiffConflictsShowHistory', 'DiffConflictsWithHistory' ] }
 
-Plug 'rhysd/accelerated-jk'
+Plug 'rhysd/accelerated-jk', { 'on': [ '<Plug>(accelerated_jk_gj)', '<Plug>(accelerated_jk_gk)' ]  }
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'tyru/caw.vim'
-Plug 'vimwiki/vimwiki' ", { 'on' : [] }
+Plug 'vimwiki/vimwiki'
 
-" Plug 'ludovicchabant/vim-gutentags' Not working
-Plug 'prabirshrestha/async.vim', { 'on' : [] } ", { 'for' : [ 'python', 'cpp' ] }
-Plug 'stackline/vim-asynctags', { 'on' : [] } ", { 'for' : [ 'python', 'cpp' ] }
 Plug 'andymass/vim-matchup'
 Plug 'jiangmiao/auto-pairs'
-Plug 'kien/ctrlp.vim'
 Plug 'AndrewRadev/linediff.vim'
+Plug 'tpope/vim-dadbod'
+Plug 'kristijanhusak/vim-dadbod-ui'
+
+" Plug 'terryma/vim-multiple-cursors'
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'justinmk/vim-dirvish'
+Plug 'itchyny/vim-cursorword'
+
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'voldikss/fzf-floaterm'
+
+Plug 'windwp/vim-floaterm-repl'
+Plug 'preservim/tagbar'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'ivalkeen/vim-ctrlp-tjump'
 
 " }}}
 " Colorschemes {{{
@@ -41,7 +56,7 @@ Plug 'joshdick/onedark.vim'
 Plug 'AlessandroYorba/Sierra'
 Plug 'liuchengxu/space-vim-theme'
 Plug 'jacoborus/tender.vim'
-Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'rakr/vim-one'
 
 " Airline
 Plug 'vim-airline/vim-airline-themes'
@@ -49,32 +64,22 @@ Plug 'vim-airline/vim-airline-themes'
 " }}}
 " Language {{{
 
-Plug 'prabirshrestha/vim-lsp'
-Plug 'mattn/vim-lsp-settings'
-Plug 'prabirshrestha/asyncomplete.vim'
-Plug 'prabirshrestha/asyncomplete-lsp.vim'
-Plug 'prabirshrestha/asyncomplete-file.vim'
-Plug 'prabirshrestha/asyncomplete-buffer.vim'
-Plug 'prabirshrestha/asyncomplete-tags.vim'
-Plug 'prabirshrestha/asyncomplete-necosyntax.vim'
-if has('python3')
-    Plug 'SirVer/ultisnips'
-    Plug 'honza/vim-snippets'
-    Plug 'prabirshrestha/asyncomplete-ultisnips.vim'
-endif
+Plug 'honza/vim-snippets'
 Plug 'Shougo/neco-syntax'
 Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-surround'
+Plug 'vim-scripts/utl.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
+Plug 'voldikss/vim-floaterm'
+Plug 'Shougo/neosnippet.vim'
+Plug 'Shougo/neosnippet-snippets'
+Plug 'rhysd/committia.vim'
 
 " Python {{{
 
-Plug 'vim-python/python-syntax', { 'on' : [] } " , 'for' : 'python' }
+Plug 'vim-python/python-syntax', { 'for' : 'python' }
+Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
 
 " }}}
-" Misc {{{
-
-Plug 'JamshedVesuna/vim-markdown-preview'
-
-" }}}`
 
 " vim: set foldmethod=marker ts=2 sw=2 tw=80 noet :
