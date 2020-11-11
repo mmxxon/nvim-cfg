@@ -14,5 +14,8 @@
 		"css",
 		"cpp",
 		"c"
-	]
+	],
+  "explorer.keyMappings.global": {
+    "u": "gotoParent"
+  }
 }

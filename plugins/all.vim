@@ -1,19 +1,20 @@
-" Perfomance {{{
-
 if has_key ( plugs, 'vim-better-whitespace' )
 	let g:better_whitespace_guicolor='#a4a4a4'
 endif
 
 if has_key(plugs, 'goyo.vim')
-	nnoremap <silent> <leader>z :Goyo<cr>
+	nnoremap <silent> <leader>zz :Goyo<cr>
 	let g:goyo_width = '60%'
 	let g:goyo_height = '100%'
 endif
 
 if has_key(plugs, 'indentLine')
-	let g:indentLine_fileTypeExclude = ['help']
+	let g:indentLine_char = '│'
+	let g:indentLine_first_char = '│'
+	let g:indentLine_showFirstIndentLevel = 1
+	let g:indentLine_setColors = 0
+	let g:indentLine_fileTypeExclude = ['help', 'startify', 'coc-explorer']
 	let g:indentLine_leadingSpaceChar = '·'
-	let g:indentLine_char = '┊'
 	let g:indentLine_faster = 1
 	let g:indentLine_leadingSpaceEnabled = 1
 endif
@@ -82,12 +83,82 @@ if has_key(plugs, 'vim-asterisk')
 	map gz# <Plug>(asterisk-gz#)
 	let g:asterisk#keeppos = 1
 endif
+
 if has_key(plugs, 'coc.nvim')
 	let g:coc_data_home = $DATA_PATH . '/coc'
 endif
 
-" }}}
-" Colorschemes {{{
+if has_key(plugs, 'vim-floaterm')
+	let g:floaterm_width=0.4
+	let g:floaterm_height=0.4
+	let g:floaterm_position="bottomright"
+	let g:floaterm_keymap_new    = '<F2>'
+	let g:floaterm_keymap_next   = '<F3>'
+	let g:floaterm_keymap_toggle = '<F4>'
+	function! s:runner_proc(opts)
+		let curr_bufnr = floaterm#curr()
+		if has_key(a:opts, 'silent') && a:opts.silent == 1
+			FloatermHide!
+		endif
+		let cmd = 'cd ' . shellescape(getcwd())
+		call floaterm#terminal#send(curr_bufnr, [cmd])
+		call floaterm#terminal#send(curr_bufnr, [a:opts.cmd])
+		stopinsert
+		if &filetype == 'floaterm' && g:floaterm_autoinsert
+			call floaterm#util#startinsert()
+		endif
+	endfunction
+	let g:asyncrun_runner = get(g:, 'asyncrun_runner', {})
+	let g:asyncrun_runner.floaterm = function('s:runner_proc')
+	let g:asynctasks_term_pos="floaterm"
+endif
+
+if has_key(plugs, 'vim-floaterm-repl')
+	nnoremap <leader>uc :FloatermRepl<CR>
+	vnoremap <leader>uc :FloatermRepl<CR>
+endif
+
+if has_key(plugs, 'tagbar')
+	let g:tagbar_autofocus = 1
+	" let g:tagbar_autopreview = 1
+	autocmd FileType c,cpp,javascript,typescript,rust nested :TagbarOpen
+	nnoremap <silent><leader>t :<C-u>TagbarToggle<cr>
+	nnoremap <F9> :<C-u>TagbarToggle<cr>
+	let g:tagbar_width = 50
+	let g:tagbar_map_openfold = [ 'zo', 'l' ]
+	let g:tagbar_map_closefold = [ 'zc', 'h' ]
+	let g:tagbar_map_openallfolds = [ 'zR', '=' ]
+	let g:tagbar_map_closeallfolds = [ 'zM', '-' ]
+	let tagbar_map_showproto = ''
+endif
+
+if has_key(plugs, "vim-dadbod-ui")
+	let g:db_ui_win_position = "right"
+	nnoremap <silent><Leader>db :<C-u>DBUIToggle<cr>
+endif
+
+if has_key(plugs, 'fzf.vim')
+	nnoremap <silent><leader>zf :<C-u>GitFiles?<CR>
+	nnoremap <silent><leader>zg :<C-u>Tags<CR>
+	nnoremap <silent><leader>zt :<C-u>BTags<CR>
+	nnoremap <silent><leader>zm :<C-u>Marks<CR>
+	nnoremap <silent><leader>zc :<C-u>Commits<CR>
+	nnoremap <silent><leader>zb :<C-u>BCommits<CR>
+	nnoremap <silent><leader>zz :<C-u>FZF<CR>
+	nnoremap <silent><leader>za :<C-u>Colors<CR>
+endif
+
+if has_key(plugs, 'vim-session')
+	nnoremap <silent><leader>ww :<C-u>SaveSession<CR>
+	nnoremap <F5> :<C-u>SaveSession<CR>
+	nnoremap <silent><leader>wo :<C-u>OpenSession<CR>
+	nnoremap <F6> :<C-u>OpenSession<CR>
+	nnoremap <silent><leader>wc :<C-u>CloseSession<CR>
+	nnoremap <silent><leader>wd :<C-u>DeleteSession<CR>
+	nnoremap <silent><leader>wv :<C-u>ViewSession<CR>
+	let g:session_directory = $DATA_PATH . '/session/'
+	let g:session_autoload = 'no'
+endif
 
 if has_key(plugs, 'Sierra')
 "	let g:sierra_Sunset = 1
@@ -95,7 +166,5 @@ if has_key(plugs, 'Sierra')
 "	let g:sierra_Midnight = 1
  	let g:sierra_Pitch = 1
 endif
-
-" }}}
 
 " vim: set foldmethod=marker ts=2 sw=2 tw=80 noet :

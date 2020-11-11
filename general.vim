@@ -16,6 +16,7 @@ set autoread
 set scrolloff=5
 set sidescrolloff=6
 set splitright
+set splitbelow
 
 " }}}
 " Editor UI {{{

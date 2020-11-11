@@ -1,7 +1,6 @@
 " Autoloads theme according to user selected colorschemes
 
 function! s:theme_init()
-	" Load cached colorscheme or hybrid by default
 	let l:default = 'gotham256'
 	let l:cache = s:theme_cache_file()
 	if ! exists('g:colors_name')
