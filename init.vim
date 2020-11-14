@@ -85,11 +85,11 @@ let g:loaded_netrwFileHandlers = 1
 " }}}
 " Sourced files {{{
 
-source $VIM_PATH/general.vim
 source $VIM_PATH/theme.vim
 source $VIM_PATH/plugins/all.vim
 source $VIM_PATH/plugins/coc.vim
 source $VIM_PATH/bindings.vim
+source $VIM_PATH/general.vim
 
 " }}}
 

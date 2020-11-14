@@ -93,8 +93,8 @@ augroup END
 " Timings {{{
 
 set timeout ttimeout
-set timeoutlen=500
-set ttimeoutlen=10
+set timeoutlen=1000
+set ttimeoutlen=50
 set updatetime=200
 set redrawtime=1500
 

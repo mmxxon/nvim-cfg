@@ -1,5 +1,6 @@
 if has_key ( plugs, 'vim-better-whitespace' )
 	let g:better_whitespace_guicolor='#a4a4a4'
+	nnoremap <silent><leader>cw		:StripWhitespace<cr>
 endif
 
 if has_key(plugs, 'goyo.vim')
@@ -8,12 +9,18 @@ if has_key(plugs, 'goyo.vim')
 	let g:goyo_height = '100%'
 endif
 
+if has_key(plugs, 'vim-indentguides')
+	let g:indentguides_tabchar = '│'
+	let g:indentguides_spacechar = '┆'
+	let g:indentguides_ignorelist = [ 'markdown', 'vista', 'text', 'coc-explorer']
+endif
+
 if has_key(plugs, 'indentLine')
 	let g:indentLine_char = '│'
 	let g:indentLine_first_char = '│'
 	let g:indentLine_showFirstIndentLevel = 1
 	let g:indentLine_setColors = 0
-	let g:indentLine_fileTypeExclude = ['help', 'startify', 'coc-explorer']
+	let g:indentLine_fileTypeExclude = ['markdown', 'vista', 'json']
 	let g:indentLine_leadingSpaceChar = '·'
 	let g:indentLine_faster = 1
 	let g:indentLine_leadingSpaceEnabled = 1
@@ -114,49 +121,62 @@ if has_key(plugs, 'vim-floaterm')
 endif
 
 if has_key(plugs, 'vim-floaterm-repl')
-	nnoremap <leader>uc :FloatermRepl<CR>
-	vnoremap <leader>uc :FloatermRepl<CR>
+	nnoremap <leader>uc :FloatermRepl<cr>
+	vnoremap <leader>uc :FloatermRepl<cr>
 endif
 
 if has_key(plugs, 'tagbar')
 	let g:tagbar_autofocus = 1
 	" let g:tagbar_autopreview = 1
-	autocmd FileType c,cpp,javascript,typescript,rust nested :TagbarOpen
-	nnoremap <silent><leader>t :<C-u>TagbarToggle<cr>
-	nnoremap <F9> :<C-u>TagbarToggle<cr>
+	" autocmd FileType c,cpp,javascript,typescript,rust nested :TagbarOpen
+	nnoremap <silent><leader>t :TagbarToggle<cr>
+	nnoremap <F9> :TagbarToggle<cr>
 	let g:tagbar_width = 50
 	let g:tagbar_map_openfold = [ 'zo', 'l' ]
 	let g:tagbar_map_closefold = [ 'zc', 'h' ]
 	let g:tagbar_map_openallfolds = [ 'zR', '=' ]
 	let g:tagbar_map_closeallfolds = [ 'zM', '-' ]
 	let tagbar_map_showproto = ''
+	let g:tagbar_show_tag_count = 1
+	let g:tagbar_iconchars = ['+', '-']
+endif
+
+if has_key(plugs, 'vista.vim')
+	let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
+	let g:vista_default_executive = 'ctags'
+	let g:vista_fold_toggle_icons = [ '-', '+' ]
+	let g:vista_cursor_delay = 100
+	nnoremap <silent><F9> :Vista!!<cr>
+	nnoremap <silent><leader>t :Vista coc<cr>
+	autocmd FileType vista,vista_kind nmap <buffer> <leader>t q
+	autocmd FileType vista,vista_kind nnoremap <buffer> <silent> \/ :<c-u>call vista#finder#fzf#Run()<CR>
 endif
 
 if has_key(plugs, "vim-dadbod-ui")
 	let g:db_ui_win_position = "right"
-	nnoremap <silent><Leader>db :<C-u>DBUIToggle<cr>
+	nnoremap <silent><Leader>db :DBUIToggle<cr>
 endif
 
-if has_key(plugs, 'fzf.vim')
-	nnoremap <silent><leader>zf :<C-u>GitFiles?<CR>
-	nnoremap <silent><leader>zg :<C-u>Tags<CR>
-	nnoremap <silent><leader>zt :<C-u>BTags<CR>
-	nnoremap <silent><leader>zm :<C-u>Marks<CR>
-	nnoremap <silent><leader>zc :<C-u>Commits<CR>
-	nnoremap <silent><leader>zb :<C-u>BCommits<CR>
-	nnoremap <silent><leader>zz :<C-u>FZF<CR>
-	nnoremap <silent><leader>za :<C-u>Colors<CR>
-endif
+" if has_key(plugs, 'fzf.vim')
+" 	nnoremap <silent><leader>zg :GitFiles?<cr>
+" 	nnoremap <silent><leader>zt :Tags<cr>
+" 	nnoremap <silent><leader>zbt :BTags<cr>
+" 	nnoremap <silent><leader>zm :Marks<cr>
+" 	nnoremap <silent><leader>zc :Commits<cr>
+" 	nnoremap <silent><leader>zbc :BCommits<cr>
+" 	nnoremap <silent><leader>zf :FZF<cr>
+" 	nnoremap <silent><leader>za :Colors<cr>
+" endif
 
 if has_key(plugs, 'vim-session')
-	nnoremap <silent><leader>ww :<C-u>SaveSession<CR>
-	nnoremap <F5> :<C-u>SaveSession<CR>
-	nnoremap <silent><leader>wo :<C-u>OpenSession<CR>
-	nnoremap <F6> :<C-u>OpenSession<CR>
-	nnoremap <silent><leader>wc :<C-u>CloseSession<CR>
-	nnoremap <silent><leader>wd :<C-u>DeleteSession<CR>
-	nnoremap <silent><leader>wv :<C-u>ViewSession<CR>
-	let g:session_directory = $DATA_PATH . '/session/'
+	nmap <leader>w [vim-s]
+	nnoremap <silent> [vim-s]w :SaveSession<cr>
+	nnoremap <F5> :SaveSession<cr>
+	nnoremap <silent> [vim-s]o :OpenSession<cr>
+	nnoremap <F6> :OpenSession<cr>
+	nnoremap <silent> [vim-s]c :CloseSession<cr>
+	nnoremap <silent> [vim-s]d :DeleteSession<cr>
+	nnoremap <silent> [vim-s]v :ViewSession<cr>
 	let g:session_autoload = 'no'
 endif
 
@@ -165,6 +185,11 @@ if has_key(plugs, 'Sierra')
 "	let g:sierra_Twilight = 1
 "	let g:sierra_Midnight = 1
  	let g:sierra_Pitch = 1
+endif
+
+if has_key(plugs, 'vim-windowswap')
+	let g:windowswap_map_keys = 0
+	nnoremap <silent> <leader>ws :call WindowSwap#EasyWindowSwap()<CR>
 endif
 
 " vim: set foldmethod=marker ts=2 sw=2 tw=80 noet :

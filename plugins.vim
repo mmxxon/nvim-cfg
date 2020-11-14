@@ -5,9 +5,12 @@ Plug 'junegunn/vim-plug'
 Plug 'vim-airline/vim-airline'
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 Plug 'deris/vim-shot-f'
-" Plug 'norcalli/nvim-colorizer.lua'
+" Plug 'unblevable/quick-scope'
+Plug 'norcalli/nvim-colorizer.lua'
 Plug 'mhinz/vim-startify'
 Plug 'Yggdroot/indentLine'
+" Plug 'thaerkh/vim-indentguides'
+" Plug 'nathanaelkane/vim-indent-guides'
 Plug 'luochen1990/rainbow'
 Plug 'romainl/vim-cool'
 Plug 'ryanoasis/vim-devicons'
@@ -21,7 +24,7 @@ Plug 'xon-dev/diffconflicts', { 'on': [ 'DiffConflicts', 'DiffConflictsShowHisto
 Plug 'rhysd/accelerated-jk'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'tyru/caw.vim'
-Plug 'vimwiki/vimwiki'
+" Plug 'vimwiki/vimwiki'
 
 Plug 'andymass/vim-matchup'
 Plug 'jiangmiao/auto-pairs'
@@ -36,16 +39,19 @@ Plug 'justinmk/vim-dirvish'
 Plug 'itchyny/vim-cursorword'
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
 Plug 'voldikss/vim-floaterm'
 Plug 'voldikss/fzf-floaterm'
 Plug 'windwp/vim-floaterm-repl'
 
-Plug 'preservim/tagbar'
+" Plug 'preservim/tagbar'
+Plug 'liuchengxu/vista.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'ivalkeen/vim-ctrlp-tjump'
 Plug 'xolox/vim-session'
 Plug 'xolox/vim-misc'
+" Plug 'mileszs/ack.vim'
+Plug 'markstory/vim-zoomwin'
+Plug 'wesQ3/vim-windowswap'
 
 " }}}
 " Colorschemes {{{
@@ -63,6 +69,7 @@ Plug 'jacoborus/tender.vim'
 Plug 'rakr/vim-one'
 Plug 'ayu-theme/ayu-vim'
 Plug 'srcery-colors/srcery-vim'
+Plug 'owickstrom/vim-colors-paramount'
 
 " Airline
 Plug 'vim-airline/vim-airline-themes'
