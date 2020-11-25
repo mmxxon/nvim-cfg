@@ -34,16 +34,19 @@ if has_key ( plugs, 'vim-better-whitespace')
 	nnoremap [w :PrevTrailingWhitespace<CR>
 endif
 
-nnoremap <c-j> <c-w><c-j>
-nnoremap <c-k> <c-w><c-k>
+" nnoremap <c-j> <c-w><c-j>
+" nnoremap <c-k> <c-w><c-k>
 nnoremap <c-l> <c-w><c-l>
 nnoremap <c-h> <c-w><c-h>
 nnoremap <c-=> <c-w>=
+nnoremap <c-y> <c-i>
 
-cnoremap <C-h> <Home>
-cnoremap <C-l> <End>
-cnoremap <C-k> <Right>
-cnoremap <C-j> <Left>
+cnoremap <C-p> <home>
+cnoremap <C-n> <end>
+cnoremap <C-k> <up>
+cnoremap <C-j> <down>
+cnoremap <C-h> <Left>
+cnoremap <C-l> <Right>
 
 tnoremap <esc> <C-\><C-n>
 
@@ -61,7 +64,6 @@ nnoremap <silent><a-q> :qall<CR>
 xnoremap <silent><a-q> :<C-u>qall<CR>
 nnoremap <silent><c-s> :w<CR>
 xnoremap <silent><C-s> :<C-u>w<CR>gv
-cnoremap <silent><C-s> :<C-u>w<CR>
 
 autocmd FileType help noremap <buffer> q :q<cr>
 
@@ -83,5 +85,7 @@ cnoreabbrev Qa qa
 " Look {{{
 nnoremap <silent><Leader>n :set relativenumber!<cr>
 " }}}
-
-" vim: set foldmethod=marker ts=2 sw=2 tw=80 noet :
+" Short commands {{{
+command! -nargs=0 Sudosave :sil w ! sudo tee %
+" }}}
+" " vim: set foldmethod=marker ts=2 sw=2 tw=80 noet :

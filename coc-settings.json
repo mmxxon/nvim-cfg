@@ -30,5 +30,10 @@
     "u": "gotoParent"
   },
   "post.root": "~/work/posts",
-  "python.formatting.provider": "black"
+  "python.formatting.provider": "black",
+  "git.enableGutters": false,
+  "snippets.userSnippetsDirectory": "~/.config/nvim/snippets/",
+  "coc.preferences.formatOnType": true,
+  "explorer.icon.enableNerdfont": true,
+  "explorer.filename.colored.enable": false
 }

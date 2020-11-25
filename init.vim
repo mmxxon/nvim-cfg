@@ -22,6 +22,7 @@ if has('vim_starting')
 
 	" leader keys
 	let g:mapleader="\<Space>"
+	let g:maplocalleader="\\"
 
 	" Remove mappings on leader keys
 	nnoremap <Space>  <Nop>
@@ -58,13 +59,17 @@ endif
 " }}}
 " Plugins {{{
 
+filetype plugin indent on
+syntax on
+autocmd Filetype * AnyFoldActivate
+
 call plug#begin(system('echo -n "${XDG_CACHE_HOME:-$HOME/.cache}/nvim/plugged"'))
 source $VIM_PATH/plugins.vim
 call plug#end()
 
 
 " }}}
-" Default plugins off {{{
+" Default plugins {{{
 
 let g:loaded_getscript = 1
 let g:loaded_getscriptPlugin = 1
@@ -87,9 +92,9 @@ let g:loaded_netrwFileHandlers = 1
 
 source $VIM_PATH/theme.vim
 source $VIM_PATH/plugins/all.vim
-source $VIM_PATH/plugins/coc.vim
-source $VIM_PATH/bindings.vim
 source $VIM_PATH/general.vim
+source $VIM_PATH/bindings.vim
+source $VIM_PATH/plugins/coc.vim
 
 " }}}
 

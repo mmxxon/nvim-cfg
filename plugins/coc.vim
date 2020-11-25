@@ -13,17 +13,18 @@ let g:coc_global_extensions = [
       \ 'coc-css',
       \ 'coc-import-cost',
       \ 'coc-markdownlint',
-			\ 'coc-json',
+      \ 'coc-json',
       \ 'coc-python',
       \ 'coc-html',
+      \ 'coc-lit-html',
       \ 'coc-vimlsp',
       \ 'coc-tsserver',
-      \ 'coc-rust-analyzer',
+      \ 'coc-rls',
       \ 'coc-cmake',
       \ 'coc-tabnine',
       \ 'coc-snippets',
       \ 'coc-syntax',
-			\ 'coc-conventional',
+      \ 'coc-conventional',
       \ 'coc-highlight',
       \ 'coc-bookmark',
       \ 'coc-actions',
@@ -33,12 +34,14 @@ let g:coc_global_extensions = [
       \ 'coc-yank',
       \ 'coc-tag',
       \ 'coc-sql',
-			\ 'coc-db',
+      \ 'coc-db',
       \ 'coc-post',
       \ 'coc-lists',
       \ 'coc-restclient',
-			\ 'coc-eslint',
-			\ 'coc-docthis'
+      \ 'coc-eslint',
+      \ 'coc-docthis',
+			\ 'coc-swagger',
+			\ 'coc-emmet',
       \ ]
       "\ 'coc-ultisnips',
 " }}}
@@ -58,7 +61,7 @@ let g:coc_explorer_global_presets = {
 \   },
 \   'simplify': {
 \     'file-child-template': '[selection | clip | 1] [indent][icon | 1] [filename omitCenter 1]'
-\   }
+\   },
 \ }
 " }}}
 " Abbreviations {{{
@@ -94,8 +97,6 @@ inoremap <silent><expr> <c-space> coc#refresh()
 
 let g:coc_snippet_next = '<tab>'
 let g:coc_snippet_prev = '<s-tab>'
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
-
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
@@ -108,6 +109,7 @@ function! s:show_documentation()
 endfunction
 
 autocmd CursorHold * silent call CocActionAsync('highlight')
+autocmd CursorHold * :CocCommand git.refresh
 
 augroup mygroup
   autocmd!
@@ -130,19 +132,18 @@ xmap ig <Plug>(coc-git-chunk-inner)
 omap ag <Plug>(coc-git-chunk-outer)
 xmap ag <Plug>(coc-git-chunk-outer)
 
+nnoremap <silent><Leader>A	:CocList colors<cr>
 nnoremap <silent><Leader>b	:CocList buffers<cr>
 nnoremap <silent><Leader>c	:CocList commits<cr>
 nnoremap <silent><Leader>C	:CocList commands<cr>
 nnoremap <silent><Leader>e  :CocCommand explorer<cr>
-nnoremap <silent><Leader>E  :CocCommand explorer --preset floating<cr>
+nnoremap <silent><Leader>E  :exe 'CocCommand explorer ' . expand('%:p:h')<cr>
 nnoremap <silent><Leader>i  :CocList diagnostics<cr>
 nnoremap <silent><Leader>j  :CocNext<cr>
 nnoremap <silent><Leader>k  :CocPrev<cr>
 nnoremap <silent><Leader>m  :CocList bookmark<cr>
-nnoremap <silent><Leader>M  :CocList marketplace<cr>
 nnoremap <silent><Leader>o  :CocList outline<cr>
 nnoremap <silent><Leader>p  :CocListResume<cr>
-nnoremap <silent><Leader>r  :CocCommand explorer --preset floatingRightside<cr>
 nnoremap <silent><Leader>s  :CocList -I symbols<cr>
 nnoremap <silent><Leader>x  :CocList extensions<cr>
 nnoremap <silent><Leader>y  :CocList -A --normal yank<cr>
@@ -154,14 +155,15 @@ nnoremap <silent>m<Space> :CocCommand bookmark.clearForAllFiles<cr>
 
 nmap <silent><leader>ac   <Plug>(coc-codeaction)
 nmap <silent><leader>qf   <Plug>(coc-fix-current)
-nmap <silent><leader>f    <Plug>(coc-format)
-vmap <silent><leader>f    <Plug>(coc-format-selected)
+nmap <silent>=    <Plug>(coc-format-selected)
+vmap <silent>=    <Plug>(coc-format-selected)
+nmap <silent>==    <Plug>(coc-format)
 nmap <silent><leader>rn   <Plug>(coc-rename)
 nmap <silent><leader>gs   <Plug>(coc-git-chunkinfo)
 nmap <silent><leader>gc   <Plug>(coc-git-commit)
 
-nmap ' [fzf-p]
-xmap ' [fzf-p]
+nmap \ [fzf-p]
+xmap \ [fzf-p]
 nnoremap <silent> [fzf-p]g      :CocCommand fzf-preview.GitActions<CR>
 nnoremap <silent> [fzf-p]b      :CocCommand fzf-preview.Buffers<CR>
 nnoremap <silent> [fzf-p]B      :CocCommand fzf-preview.AllBuffers<CR>
@@ -196,9 +198,9 @@ nmap <silent> gr <Plug>(coc-references)
 
 " Use K to show documentation in preview window.
 nnoremap <silent> K :call <SID>show_documentation()<cr>
-nnoremap <nowait><expr><c-j> coc#float#has_scroll() ? coc#float#scroll(1, 3) : "\<c-j>"
-nnoremap <nowait><expr><c-k> coc#float#has_scroll() ? coc#float#scroll(0, 3) : "\<c-k>"
-nnoremap <nowait><expr><esc> coc#float#has_float() ?
+nnoremap <expr><c-j> coc#float#has_scroll() ? coc#float#scroll(1, 3) : "\<c-w><c-j>"
+nnoremap <expr><c-k> coc#float#has_scroll() ? coc#float#scroll(0, 3) : "\<c-w><c-k>"
+nnoremap <expr><esc> coc#float#has_float() ?
 			\ coc#float#close(coc#float#get_float_win()) : "\<esc>"
 
 command! Jest :call  CocActionAsync('runCommand', 'jest.projectTest')
@@ -214,7 +216,6 @@ command! -nargs=? Fold			:call     CocAction('fold', <f-args>)
 command! -nargs=0 Or				:call     CocAction('runCommand', 'editor.action.organizeImport')
 command! -nargs=0 EsFix			:call CocActionAsync('runCommand', 'eslint.executeAutofix')
 command! -nargs=0 EsConfig	:call CocActionAsync('runCommand', 'eslint.createConfig')
-command! -nargs=0 Doctis		:call CocActionAsync('runCommand', 'docthis.documentThis')
-
+command! -nargs=0 Docthis		:call CocActionAsync('runCommand', 'docthis.documentThis')
 
 " vim: set foldmethod=marker ts=2 sw=2 tw=80 noet :

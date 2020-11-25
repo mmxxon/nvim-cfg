@@ -25,9 +25,8 @@ set number            " Enables line numbers
 set numberwidth=2     " Default size of numbers field
 set relativenumber    " Enables relative number
 set cursorline        " Highlight caret line
-set cmdheight=2
 
-set textwidth=90      " Maximum line size
+set textwidth=80      " Maximum line size
 set tabstop=2         " Number of spaces used in <Tab>
 set shiftwidth=2      " Number of spaces used in identation
 set shiftround        " Use shiftwidth when shifting lines
@@ -44,6 +43,8 @@ set nostartofline
 set whichwrap+=h,l,<,>,[,],~
 set shortmess+=c
 set expandtab
+set foldlevel=99
+set foldmethod=indent
 
 " }}}
 " Directories {{{
@@ -93,7 +94,7 @@ augroup END
 " Timings {{{
 
 set timeout ttimeout
-set timeoutlen=1000
+set timeoutlen=2000
 set ttimeoutlen=50
 set updatetime=200
 set redrawtime=1500
@@ -111,6 +112,7 @@ set complete=.,w,b,k
 if exists('+inccommand')
   set inccommand=nosplit
 endif
+
 
 " }}}
 
