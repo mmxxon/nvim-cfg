@@ -1,22 +1,5 @@
 {
   "codeLens.enable": true,
-  "languageserver": {
-    "clangd": {
-      "command": "clangd",
-      "rootPatterns": [
-        "compile_flags.txt",
-        "compile_commands.json"
-      ],
-      "filetypes": [
-        "c",
-        "cc",
-        "cpp",
-        "c++",
-        "objc",
-        "objcpp"
-      ]
-    }
-  },
   "coc.preferences.formatOnSaveFiletypes": [
     "python",
     "javascript",
@@ -30,5 +13,12 @@
     "u": "gotoParent"
   },
   "post.root": "~/work/posts",
-  "python.formatting.provider": "black"
+  "jedi.startupMessage": false,
+  "snippets.userSnippetsDirectory": "~/.config/nvim/snippets/",
+  "explorer.icon.enableNerdfont": true,
+  "explorer.filename.colored.enable": false,
+  "tabnine.limit": 3,
+  "suggest.noselect": false,
+  "python.formatting.provider": "black",
+  "coc.preferences.formatOnInsertLeave": true
 }

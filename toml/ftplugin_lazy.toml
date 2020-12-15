@@ -1,0 +1,22 @@
+[[plugins]]
+repo = 'cespare/vim-toml'
+on_ft = 'toml'
+
+[[plugins]]
+repo = 'raimon49/requirements.txt.vim'
+on_ft = 'requirements'
+
+[[plugins]]
+repo = 'turbio/bracey.vim'
+build = 'npm install --prefix server'
+on_ft = [ 'html', 'css', 'javascript' ]
+on_map = 'Bracey'
+
+[[plugins]]
+repo = 'shime/vim-livedown'
+on_ft = 'markdown'
+on_cmd = 'LivedownToggle'
+
+[[plugins]]
+repo = 'mattn/emmet-vim'
+on_ft = [ 'html', 'css' ]

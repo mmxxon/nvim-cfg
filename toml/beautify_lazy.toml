@@ -1,0 +1,90 @@
+[[plugins]]
+repo = 'junegunn/goyo.vim'
+on_cmd = 'Goyo'
+hook_add = '''
+	let g:goyo_width = '60%'
+	let g:goyo_height = '100%'
+'''
+
+[[plugins]]
+repo = 'itchyny/vim-cursorword'
+on_event = 'FileType'
+hook_source = '''
+  aug xon_cursorword
+    au!
+		au WinEnter * if &diff || &pvw | let b:cursorword = 0 | endif
+		au InsertEnter * let b:cursorword = 0
+		au InsertLeave * let b:cursorword = 1
+  aug end
+'''
+
+[[plugins]]
+repo = 'rhysd/try-colorscheme.vim'
+on_cmd = 'TryColorscheme'
+
+[[plugins]]
+repo = 'romainl/vim-cool'
+on_map = [ '/', '?' ]
+
+[[plugins]]
+repo = 'luochen1990/rainbow'
+on_event = 'FileType'
+hook_add = '''
+	let g:rainbow_active = 1
+'''
+
+[[plugins]]
+repo = 'ntpeters/vim-better-whitespace'
+on_event = 'FileType'
+hook_add = '''
+	let g:better_whitespace_guicolor='#a4a4a4'
+'''
+
+[[plugins]]
+repo = 'vim-airline/vim-airline'
+hook_add = '''
+  let g:airline_section_z = "\ue0a1:%l/%L ｃ%c"
+  let g:airline#extensions#tabline#enabled = 1
+  let g:airline#extensions#tabline#formatter = 'unique_tail'
+  let g:airline#extensions#tabline#left_sep = ''
+  let g:airline#extensions#tabline#left_alt_sep = ''
+  let g:airline#extensions#tabline#right_sep = ''
+  let g:airline#extensions#tabline#right_alt_sep = ''
+  let g:airline#extensions#vista#enabled = 0
+
+  " powerline symbols
+  let g:airline_left_sep = ''
+  let g:airline_left_alt_sep = ''
+  let g:airline_right_sep = ''
+  let g:airline_right_alt_sep = ''
+'''
+on_event = 'FileType'
+
+[[plugins]]
+repo = 'ryanoasis/vim-devicons'
+on_event = 'FileType'
+
+[[plugins]]
+repo = 'Yggdroot/indentLine'
+hook_add = '''
+  let g:indentLine_enabled = 1
+  let g:indentLine_char = '│'
+  let g:indentLine_first_char = '│'
+  let g:indentLine_showFirstIndentLevel = 1
+  let g:indentLine_setColors = 0
+  let g:indentLine_fileTypeExclude = ['markdown', 'vista', 'json', 'coc-explorer']
+  " let g:indentLine_leadingSpaceChar = '·'
+  " let g:indentLine_leadingSpaceEnabled = 1
+  let g:indentLine_faster = 1
+'''
+on_event = 'FileType'
+
+[[plugins]]
+repo = 'machakann/vim-highlightedyank'
+on_event = 'TextYankPost'
+hook_add = '''
+  if !exists('##TextYankPost')
+    map y <Plug>(highlightedyank)
+  endif
+  let g:highlightedyank_highlight_duration = 300
+'''

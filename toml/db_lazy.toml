@@ -1,0 +1,27 @@
+[[plugins]]
+repo = 'kristijanhusak/vim-dadbod'
+on_cmd = ['DB']
+hook_add = 'let g:db_async = 1'
+
+[[plugins]]
+repo = 'kristijanhusak/vim-dadbod-ui'
+depends = 'vim-dadbod'
+on_cmd = ['DBUIToggle', 'DBUIAddConnection', 'DBUI', 'DBUIFindBuffer', 'DBUIRenameBuffer']
+hook_add = '''
+	let g:db_ui_win_position = 'right'
+	let g:db_ui_show_help = 0
+	let g:db_ui_use_nerd_fonts = 1
+	let g:db_ui_winwidth = 40
+	let g:db_ui_show_database_icon = 1
+	let g:db_ui_save_location = '~/work/db/dbui'
+	let g:db_ui_tmp_query_location = '~/work/db/queries'
+	let g:dbs = {
+	\  'master': 'postgres://localhost/postgres',
+	\  'slave': 'postgres://localhost:5433/postgres'
+	\ }
+	" let g:db_ui_auto_execute_table_helpers = 1
+  aug xon_db_exit
+    au!
+    au BufEnter * if (winnr("$") == 1 && &filetype == 'dbui') | q | endif
+  aug end
+'''

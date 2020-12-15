@@ -1,0 +1,8 @@
+[[plugins]]
+repo = 'puremourning/vimspector'
+hook_post_update = ':VimspectorInstall --all --disable-tcl --force-enable-node'
+on_ft = [ 'c', 'cpp', 'rust', 'python', 'golang', 'javascript', 'typescript', 'bash', 'lua' ]
+hook_add = '''
+	let g:vimspector_enable_mappings = 'HUMAN'
+	let g:vimspector_json_path=$VIM_PATH . "/vimspector/"
+'''

@@ -1,0 +1,44 @@
+[[plugins]]
+repo = 'rhysd/accelerated-jk'
+on_map = [[ 'n', '<Plug>' ]]
+
+[[plugins]]
+repo = 'deris/vim-shot-f'
+on_map = [[ 'nxo', 'f', 'F', 't', 'T' ]]
+
+[[plugins]]
+repo = 't9md/vim-choosewin'
+on_map = [[ 'n', '<Plug>' ]]
+
+[[plugins]]
+repo = 'markstory/vim-zoomwin'
+on_cmd = 'ZoomToggle'
+
+[[plugins]]
+repo = 'airblade/vim-rooter'
+on_event = 'FileType'
+hook_add = '''
+	let g:rooter_patterns = ['main.py', '.git', 'Makefile',
+			\ '*.sln', 'build/env.sh', 'composer.json',
+			\ 'composer.lock','.idea','package.json',
+			\ '.git','.gitignore','.hg','.projections.json',
+			\ '.vimspector.json']
+	let g:rooter_targets = '/,*'
+	let g:rooter_change_directory_for_non_project_files = 'current'
+	let g:rooter_silent_chdir = 1
+'''
+
+[[plugins]]
+repo = 'pseewald/vim-anyfold'
+on_cmd = 'AnyFoldActivate'
+on_ft = ['python', 'cpp', 'c', 'vim']
+hook_source = '''
+  aug xon_anyfold
+    au!
+    au Filetype python,cpp,c,vim AnyFoldActivate
+  aug end
+'''
+
+[[plugins]]
+repo = 'easymotion/vim-easymotion'
+on_map = [['n', '<Plug>']]

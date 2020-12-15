@@ -1,0 +1,23 @@
+[[plugins]]
+repo = 'tyru/caw.vim'
+on_map = '<Plug>(caw:'
+
+[[plugins]]
+repo = 'tpope/vim-surround'
+on_map = [[ 'n', 'cs', 'ds', 'ys' ], [ 'x', 'S' ]]
+
+[[plugins]]
+repo = 'AndrewRadev/linediff.vim'
+on_cmd = [ 'Linediff', 'LinediffReset' ]
+
+[[plugins]]
+repo = 'matze/vim-move'
+on_event = 'BufReadPre'
+on_map = [ 'A-j', 'A-k' ]
+hook_add = '''
+  let g:move_map_keys = 0
+'''
+
+[[plugins]]
+repo = 'tommcdo/vim-exchange'
+on_map = [[ 'v', 'X' ], [ 'n', 'cx' ]]

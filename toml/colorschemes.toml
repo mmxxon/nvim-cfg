@@ -1,0 +1,43 @@
+[[plugins]]
+repo = 'ayu-theme/ayu-vim'
+
+[[plugins]]
+repo = 'whatyouhide/vim-gotham'
+
+[[plugins]]
+repo = 'joshdick/onedark.vim'
+
+[[plugins]]
+repo = 'liuchengxu/space-vim-theme'
+
+[[plugins]]
+repo = 'rakr/vim-one'
+
+[[plugins]]
+repo = 'srcery-colors/srcery-vim'
+
+[[plugins]]
+repo = 'nanotech/jellybeans.vim'
+
+[[plugins]]
+repo = 'tomasr/molokai'
+
+[[plugins]]
+repo = 'fmoralesc/molokayo'
+
+[[plugins]]
+repo = 'sonph/onehalf'
+rtp = 'vim/'
+
+[[plugins]]
+repo = 'sjl/badwolf'
+hook_add = '''
+	let g:badwolf_darkgutter = 1
+	let g:badwolf_tabline = 0
+'''
+
+[[plugins]]
+repo = 'dylanaraps/wal.vim'
+
+[[plugins]]
+repo = 'vim-airline/vim-airline-themes'
