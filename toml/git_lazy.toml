@@ -1,0 +1,18 @@
+[[plugins]]
+repo = 'rhysd/committia.vim'
+on_path = [ 'COMMIT_EDITMSG', 'MERGE_MSG' ]
+hook_add = '''
+	let g:committia_min_window_width = 70
+'''
+
+[[plugins]]
+repo = 'xon-dev/diffconflicts'
+on_cmd = [
+	'DiffConflicts',
+	'DiffConflictsShowHistory',
+	'DiffConflictsWithHistory'
+]
+
+[[plugins]]
+repo = 'lambdalisue/gina.vim'
+on_cmd = 'Gina'

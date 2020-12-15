@@ -1,0 +1,13 @@
+[[plugins]]
+repo = 'andymass/vim-matchup'
+
+[[plugins]]
+repo = 'junegunn/fzf'
+hook_post_update = 'fzf#install()'
+
+[[plugins]]
+repo = 'junegunn/fzf.vim'
+depends = 'fzf'
+
+[[plugins]]
+repo = 'justinmk/vim-dirvish'

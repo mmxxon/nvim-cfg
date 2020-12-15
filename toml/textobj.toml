@@ -1,0 +1,47 @@
+[[plugins]]
+repo = 'kana/vim-textobj-user'
+
+[[plugins]]
+repo = 'kana/vim-textobj-entire'
+
+[[plugins]]
+repo = 'kana/vim-textobj-line'
+
+[[plugins]]
+repo = 'kana/vim-textobj-indent'
+
+[[plugins]]
+repo = 'glts/vim-textobj-comment'
+depends = 'vim-textobj-user'
+
+[[plugins]]
+repo = 'rhysd/vim-textobj-anyblock'
+
+[[plugins]]
+repo = 'jceb/vim-textobj-uri'
+
+[[plugins]]
+repo = 'terryma/vim-expand-region'
+depends = [ 
+	'vim-textobj-user', 
+	'vim-textobj-entire',  
+	'kana/vim-textobj-line', 
+	'kana/vim-textobj-indent',
+	'rhysd/vim-textobj-anyblock'
+]
+hook_add = """
+	let g:expand_region_text_objects = {
+		\ 'iw'  :0,
+		\ 'iW'  :0,
+		\ 'i"'  :0,
+		\ 'i''' :0,
+		\ 'il'  :1,
+		\ 'i]'  :1,
+		\ 'ii'	:1,
+		\ 'if'	:1,
+		\ 'ib'  :1,
+		\ 'iB'  :1,
+		\ 'ip'  :0,
+		\ 'ie'  :0,
+		\ }
+"""

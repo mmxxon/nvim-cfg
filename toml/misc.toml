@@ -1,0 +1,21 @@
+[[plugins]]
+repo = 'skywind3000/asyncrun.vim'
+
+[[plugins]]
+repo = 'mhinz/vim-startify'
+depends = 'vim-devicons'
+hook_add = '''
+  let g:startify_bookmarks = ["~/.config/nvim/toml/", "~/.config/nvim/plugcfg/cocfunc.vim", "~/.config/nvim/partials/"]
+  let g:startify_list_order = [
+    \ ['   ♻  Most Recently Used Files :'],
+    \ 'files',
+    \ ['   ♲  MRU in current directory :'],
+    \ 'dir',
+    \ ['   ⚑  Sessions :'],
+    \ 'sessions',
+    \ ['   ☺  Bookmark :'],
+    \ 'bookmarks',
+    \ ['Commands :'],
+    \ 'commands'
+    \ ]
+'''

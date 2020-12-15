@@ -1,0 +1,73 @@
+[[plugins]]
+repo = 'neoclide/coc.nvim'
+rev = 'release'
+if = '''executable('yarn')'''
+build = 'yarn install --frozen-lockfile'
+merged = 0
+hook_add = '''
+  let g:coc_snippet_next = '<tab>'
+  let g:coc_snippet_prev = '<s-tab>'
+  let g:coc_data_home = $DATA_PATH . '/coc'
+  let g:coc_global_extensions = [
+    \ 'coc-git',
+    \ 'coc-explorer',
+    \ 'coc-clangd',
+    \ 'coc-jest',
+    \ 'coc-jedi',
+    \ 'coc-angular',
+    \ 'coc-react-refactor',
+    \ 'coc-postfix',
+    \ 'coc-toml',
+    \ 'coc-fzf-preview',
+    \ 'coc-fs-lists',
+    \ 'coc-diagnostic',
+    \ 'coc-style-helper',
+    \ 'coc-scssmodules',
+    \ 'coc-css',
+    \ 'coc-import-cost',
+    \ 'coc-markdownlint',
+    \ 'coc-json',
+    \ 'coc-pyright',
+    \ 'coc-html',
+    \ 'coc-lit-html',
+    \ 'coc-vimlsp',
+    \ 'coc-tsserver',
+    \ 'coc-rls',
+    \ 'coc-cmake',
+    \ 'coc-tabnine',
+    \ 'coc-snippets',
+    \ 'coc-syntax',
+    \ 'coc-conventional',
+    \ 'coc-highlight',
+    \ 'coc-bookmark',
+    \ 'coc-actions',
+    \ 'coc-gitignore',
+    \ 'coc-yank',
+    \ 'coc-tag',
+    \ 'coc-sql',
+    \ 'coc-db',
+    \ 'coc-post',
+    \ 'coc-lists',
+    \ 'coc-restclient',
+    \ 'coc-eslint',
+    \ 'coc-docthis',
+    \ 'coc-emmet',
+    \ ]
+
+  " Abbreviations
+  cnorea cc CocCommand
+  cnorea co CocConfig
+  cnorea cl CocList
+  cnorea cp CocUpdate
+  cnorea cu CocUninstall
+
+  " Autocmd
+  aug xon_coc_nvim
+    au!
+    au CursorHold * :silent! call CocActionAsync('highlight')
+    au CursorHold * :silent! CocCommand git.refresh
+    au FileType typescript,json setl formatexpr=CocAction('formatSelected')
+    au User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+    autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | endif
+  aug end
+'''

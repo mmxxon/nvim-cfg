@@ -1,0 +1,12 @@
+[[plugins]]
+repo = 'xolox/vim-misc'
+
+[[plugins]]
+repo = 'xolox/vim-session'
+depends = 'vim-misc'
+hook_add = '''
+	let g:session_autoload = 'no'
+'''
+
+[[plugins]]
+repo = 'tknightz/projectile.vim'
