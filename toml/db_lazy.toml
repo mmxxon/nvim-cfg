@@ -1,7 +1,6 @@
 [[plugins]]
-repo = 'kristijanhusak/vim-dadbod'
+repo = 'tpope/vim-dadbod'
 on_cmd = ['DB']
-hook_add = 'let g:db_async = 1'
 
 [[plugins]]
 repo = 'kristijanhusak/vim-dadbod-ui'
@@ -13,6 +12,7 @@ hook_add = '''
 	let g:db_ui_use_nerd_fonts = 1
 	let g:db_ui_winwidth = 40
 	let g:db_ui_show_database_icon = 1
+  let g:db_ui_auto_execute_table_helpers = 1
 	let g:db_ui_save_location = '~/work/db/dbui'
 	let g:db_ui_tmp_query_location = '~/work/db/queries'
 	let g:dbs = {

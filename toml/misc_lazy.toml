@@ -1,0 +1,3 @@
+[[plugins]]
+repo = 'lambdalisue/suda.vim'
+on_cmd = [ 'SudaRead', 'SudaWrite' ]

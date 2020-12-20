@@ -55,7 +55,7 @@ hook_add = '''
     \ ]
 
   " Abbreviations
-  cnorea cc CocCommand
+  cnorea Cc CocCommand
   cnorea co CocConfig
   cnorea cl CocList
   cnorea cp CocUpdate

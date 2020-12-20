@@ -18,7 +18,5 @@
   "explorer.icon.enableNerdfont": true,
   "explorer.filename.colored.enable": false,
   "tabnine.limit": 3,
-  "suggest.noselect": false,
-  "python.formatting.provider": "black",
-  "coc.preferences.formatOnInsertLeave": true
+  "python.formatting.provider": "black"
 }

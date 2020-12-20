@@ -20,15 +20,16 @@ se softtabstop=-1
 se smartindent
 se shortmess=atToOF
 se foldlevel=99
-se hidden
+se foldnestmax=1
 
 " Naviation
-se mouse=nv
+se mouse=nvi
 se scrolloff=5
 se sidescrolloff=6
 se splitright
 se splitbelow
 se nowrap
+se whichwrap+=h,l,<,>,[,],~
 se et
 
 " Dirs
@@ -80,6 +81,11 @@ aug xon_persistent_undo
   au BufWritePre *.bak           setl noundofile
 aug end
 
+aug xon_fold
+  au!
+  au BufWinEnter * silent! exe "%foldclose"
+aug end
+
 augroup xon_secure
   autocmd!
   silent! autocmd bufnewfile,bufreadpre
@@ -102,4 +108,5 @@ let g:loaded_netrw = 1
 let g:loaded_netrwPlugin = 1
 let g:loaded_netrwSettings = 1
 let g:loaded_netrwFileHandlers = 1
+
 

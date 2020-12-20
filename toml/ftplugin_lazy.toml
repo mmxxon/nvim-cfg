@@ -10,7 +10,7 @@ on_ft = 'requirements'
 repo = 'turbio/bracey.vim'
 build = 'npm install --prefix server'
 on_ft = [ 'html', 'css', 'javascript' ]
-on_map = 'Bracey'
+on_cmd = 'Bracey'
 
 [[plugins]]
 repo = 'shime/vim-livedown'
@@ -20,3 +20,11 @@ on_cmd = 'LivedownToggle'
 [[plugins]]
 repo = 'mattn/emmet-vim'
 on_ft = [ 'html', 'css' ]
+
+[[plugins]]
+repo = 'hanschen/vim-ipython-cell'
+on_ft = 'python'
+
+[[plugins]]
+repo = 'jpalardy/vim-slime'
+on_ft = 'python'

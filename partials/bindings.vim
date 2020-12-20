@@ -174,7 +174,6 @@ if dein#tap('coc.nvim')
   nm <silent><leader>gs   <Plug>(coc-git-chunkinfo)
   nm <silent><leader>qf   <Plug>(coc-fix-current)
   nm <silent><leader>rn   <Plug>(coc-rename)
-  nn <silent><leader>T    :call CocActionAsync('runCommand', 'jest.singleTest')<CR>
 en
 if dein#tap('projectile.vim')
 	nn \pp :AddProject<cr>
@@ -187,8 +186,15 @@ endif
 if dein#tap('bracey.vim')
 	nn <silent><Leader>P :Bracey<cr>
 endif
-if dein#tap('vista.vim')
-  nn <silent><leader>v    :Vista!!<cr>
+if dein#tap('split-term.vim')
+  nn <silent><Leader>t :VTerm<cr>
+  nn <silent><Leader>T :Term<cr>
+en
+" if dein#tap('vista.vim')
+"   nn <silent><leader>v    :Vista!!<cr>
+" en
+if dein#tap('tagbar')
+  nn <silent><leader>v    :TagbarToggle<cr>
 en
 if dein#tap('vimspector')
 	nn <silent><leader>sv :VimSpectorLoadJson<CR>

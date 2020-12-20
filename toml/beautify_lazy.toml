@@ -2,8 +2,8 @@
 repo = 'junegunn/goyo.vim'
 on_cmd = 'Goyo'
 hook_add = '''
-	let g:goyo_width = '60%'
-	let g:goyo_height = '100%'
+  let g:goyo_width = '60%'
+  let g:goyo_height = '100%'
 '''
 
 [[plugins]]
@@ -12,9 +12,9 @@ on_event = 'FileType'
 hook_source = '''
   aug xon_cursorword
     au!
-		au WinEnter * if &diff || &pvw | let b:cursorword = 0 | endif
-		au InsertEnter * let b:cursorword = 0
-		au InsertLeave * let b:cursorword = 1
+    au WinEnter * if &diff || &pvw | let b:cursorword = 0 | endif
+    au InsertEnter * let b:cursorword = 0
+    au InsertLeave * let b:cursorword = 1
   aug end
 '''
 
@@ -24,20 +24,20 @@ on_cmd = 'TryColorscheme'
 
 [[plugins]]
 repo = 'romainl/vim-cool'
-on_map = [ '/', '?' ]
+on_map = ['/', '?']
 
 [[plugins]]
 repo = 'luochen1990/rainbow'
 on_event = 'FileType'
 hook_add = '''
-	let g:rainbow_active = 1
+  let g:rainbow_active = 1
 '''
 
 [[plugins]]
 repo = 'ntpeters/vim-better-whitespace'
 on_event = 'FileType'
 hook_add = '''
-	let g:better_whitespace_guicolor='#a4a4a4'
+  let g:better_whitespace_guicolor='#a4a4a4'
 '''
 
 [[plugins]]

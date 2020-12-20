@@ -19,3 +19,6 @@ hook_add = '''
     \ 'commands'
     \ ]
 '''
+
+[[plugins]]
+repo = 'Konfekt/FastFold'
