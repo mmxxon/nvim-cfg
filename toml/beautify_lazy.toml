@@ -15,6 +15,7 @@ hook_source = '''
     au WinEnter * if &diff || &pvw | let b:cursorword = 0 | endif
     au InsertEnter * let b:cursorword = 0
     au InsertLeave * let b:cursorword = 1
+    au FileType vinarise-bitmapview let b:cursorword = 0
   aug end
 '''
 

@@ -1,0 +1,14 @@
+{
+    "include": [
+        "src"
+    ],
+    "venvPath": "/home/xon/.pyenv",
+    "reportMissingImports": true,
+    "pythonVersion": "3.9",
+    "pythonPlatform": "Linux",
+    "executionEnvironments": [
+        {
+            "root": "src"
+        }
+    ]
+}

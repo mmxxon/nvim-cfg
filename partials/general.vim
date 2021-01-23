@@ -4,6 +4,7 @@ se magic
 se path+=**
 se cb& cb=unnamedplus
 se cmdheight=2
+se hidden
 
 " Appearance
 se tgc
@@ -13,8 +14,8 @@ se cursorline
 
 se textwidth=80
 se smartindent
-se tabstop=2
-se shiftwidth=2
+se tabstop=4
+se shiftwidth=4
 se shiftround
 se softtabstop=-1
 se smartindent
@@ -81,10 +82,10 @@ aug xon_persistent_undo
   au BufWritePre *.bak           setl noundofile
 aug end
 
-aug xon_fold
-  au!
-  au BufWinEnter * silent! exe "%foldclose"
-aug end
+" aug xon_fold
+"   au!
+"   au BufWinEnter * silent! exe "%foldclose"
+" aug end
 
 augroup xon_secure
   autocmd!

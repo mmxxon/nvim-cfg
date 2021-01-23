@@ -22,3 +22,14 @@ hook_add = '''
 
 [[plugins]]
 repo = 'Konfekt/FastFold'
+
+[[plugins]]
+repo = 'inkarkat/vim-ingo-library'
+
+[[plugins]]
+repo = 'inkarkat/vim-SyntaxRange'
+hook_add = '''
+ augroup SyntaxRange
+    au! Syntax * unlet! b:SyntaxRange_IncludedFiletypes
+  augroup END
+'''

@@ -1,6 +1,8 @@
 [[plugins]]
-repo = 'tpope/vim-dadbod'
+# repo = 'tpope/vim-dadbod'
+repo = 'kristijanhusak/vim-dadbod'
 on_cmd = ['DB']
+hook_add = 'let g:db_async = 1'
 
 [[plugins]]
 repo = 'kristijanhusak/vim-dadbod-ui'

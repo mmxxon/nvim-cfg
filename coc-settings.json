@@ -1,22 +1,41 @@
 {
-  "codeLens.enable": true,
-  "coc.preferences.formatOnSaveFiletypes": [
-    "python",
-    "javascript",
-    "javascriptreact",
-    "typescriptreact",
-    "css",
-    "cpp",
-    "c"
-  ],
-  "explorer.keyMappings.global": {
-    "u": "gotoParent"
-  },
-  "post.root": "~/work/posts",
-  "jedi.startupMessage": false,
-  "snippets.userSnippetsDirectory": "~/.config/nvim/snippets/",
-  "explorer.icon.enableNerdfont": true,
-  "explorer.filename.colored.enable": false,
-  "tabnine.limit": 3,
-  "python.formatting.provider": "black"
+    "codeLens.enable": true,
+    "coc.preferences.formatOnSaveFiletypes": [
+        "python",
+        "javascript",
+        "javascriptreact",
+        "typescriptreact",
+        "css",
+        "cpp",
+        "c"
+    ],
+    "explorer.keyMappings.global": {
+        "u": "gotoParent",
+        "D": "delete",
+        ".": "toggleHidden"
+    },
+    "post.root": "~/work/posts",
+    "snippets.userSnippetsDirectory": "~/.config/nvim/snippets/",
+    "explorer.icon.enableNerdfont": true,
+    "explorer.filename.colored.enable": false,
+    "tabnine.limit": 3,
+    "coc.source.db.priority": 97,
+    "python.formatting.provider": "black",
+    "python.pythonPath": "/home/xon/.pyenv/shims/python",
+    "coc.preferences.rootPatterns": [
+        "main.py",
+        "Makefile",
+        "*.sln",
+        "build/env.sh",
+        "composer.json",
+        ".vimspector.json",
+        "__pycache__",
+        "composer.lock",
+        ".idea",
+        "package.json",
+        ".git",
+        ".gitignore",
+        ".hg",
+        ".projections.json"
+    ]
 }

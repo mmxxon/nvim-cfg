@@ -1,5 +1,14 @@
 " General {{{
 
+" Unmap mouse {{{
+
+map <S-ScrollWheelUp> <nop>
+im <S-ScrollWheelUp> <nop>
+map <S-ScrollWheelDown> <nop>
+im <S-ScrollWheelDown> <nop>
+
+" }}}
+
 " Forward locations
 nn <c-y> <c-i>
 
@@ -44,6 +53,7 @@ nn <silent><S-Tab> :tabprevious<CR>
 
 " Terminal
 tnoremap <esc> <C-\><C-n>
+au TermOpen * nn <buffer><esc> :q!<cr>
 
 " }}}
 
@@ -78,7 +88,6 @@ en
 if dein#tap('goyo.vim')
   nn <silent>zz :Goyo<cr>
 en
-
 if dein#tap('coc.nvim')
   " Coc: completion
 	ino <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<cr>\<c-r>=coc#on_enter()\<cr>"
@@ -105,7 +114,14 @@ if dein#tap('coc.nvim')
   nm <silent> gi    <Plug>(coc-implementation)
   nm <silent> gr    <Plug>(coc-references)
 en
+if dein#tap('neosnippet.vim')
+  imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+  smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+  xmap <C-k>     <Plug>(neosnippet_expand_target)
 
+  smap <expr><TAB> neosnippet#expandable_or_jumpable()
+        \ ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+en
 if dein#tap('vim-expand-region')
 	nm <A-l> <Plug>(expand_region_expand)
 	nm <A-h> <Plug>(expand_region_shrink)
@@ -122,17 +138,9 @@ if dein#tap('vimspector')
   nn <silent><F7> :VimspectorReset<cr>
 en
 
-" Visual Enter {{{
-
-vn <Esc> <Esc>:set nu nornu<CR>
-au CursorMoved * if mode() !~# "[vV\<C-v>]" | set nornu | en
-nn <silent> v v:<C-u>set rnu<CR>gv
-nn <silent> V V:<C-u>set rnu<CR>gv
-nn <silent> <C-v> <C-v>:<C-u>set rnu<CR>gv
-
-" }}}
-
 " Leader mappings {{{
+
+nn <silent><leader><leader> <C-w><C-p>
 
 if dein#tap('vim-dadbod-ui')
   nn <silent><leader>db :DBUIToggle<cr>
@@ -152,7 +160,7 @@ if dein#tap('coc.nvim')
   nn <silent><Leader>A	  :CocList colors<cr>
   nn <silent><Leader>b	  :CocList buffers<cr>
   nn <silent><Leader>D    :CocList diagnostics<cr>
-  nm <silent><leader>e    :call CocActionAsync('runCommand', 'explorer')<cr>
+  nn <silent><leader>e    :call CocActionAsync('runCommand', 'explorer')<cr>
   nn <silent><Leader>g	  :CocList gitignore<cr>
   nn <silent><Leader>j    :CocNext<cr>
   nn <silent><Leader>k    :CocPrev<cr>
@@ -161,15 +169,15 @@ if dein#tap('coc.nvim')
   nn <silent><Leader>p    :CocListResume<cr>
   nn <silent><Leader>y    :CocList -A --normal yank<cr>
   nn <silent><Leader>x    :CocList extensions<cr>
-  nm <silent><leader>fb   :call CocActionAsync('runCommand', 'fzf-preview.Buffers')<cr>
-  nm <silent><leader>fB   :call CocActionAsync('runCommand', 'fzf-preview.AllBuffers')<cr>
-  nm <silent><leader>fc   :call CocActionAsync('runCommand', 'fzf-preview.Changes')<cr>
-  nm <silent><leader>fg   :call CocActionAsync('runCommand', 'fzf-preview.GitActions')<cr>
-  nm <silent><leader>fj   :call CocActionAsync('runCommand', 'fzf-preview.Jumps')<cr>
-  nm <silent><leader>fl   :call CocActionAsync('runCommand', 'fzf-preview.LocationList')<cr>
-  nm <silent><leader>fq   :call CocActionAsync('runCommand', 'fzf-preview.QuickFix')<cr>
-  nm <silent><leader>ft   :call CocActionAsync('runCommand', 'fzf-preview.BufferTags')<cr>
-  nm <silent><leader>fv   :call CocActionAsync('runCommand', 'fzf-preview.VistaCtags')<cr>
+  nn <silent><leader>fb   :call CocActionAsync('runCommand', 'fzf-preview.Buffers')<cr>
+  nn <silent><leader>fB   :call CocActionAsync('runCommand', 'fzf-preview.AllBuffers')<cr>
+  nn <silent><leader>fc   :call CocActionAsync('runCommand', 'fzf-preview.Changes')<cr>
+  nn <silent><leader>fg   :call CocActionAsync('runCommand', 'fzf-preview.GitActions')<cr>
+  nn <silent><leader>fj   :call CocActionAsync('runCommand', 'fzf-preview.Jumps')<cr>
+  nn <silent><leader>fl   :call CocActionAsync('runCommand', 'fzf-preview.LocationList')<cr>
+  nn <silent><leader>fq   :call CocActionAsync('runCommand', 'fzf-preview.QuickFix')<cr>
+  nn <silent><leader>ft   :call CocActionAsync('runCommand', 'fzf-preview.BufferTags')<cr>
+  nn <silent><leader>fv   :call CocActionAsync('runCommand', 'fzf-preview.VistaCtags')<cr>
   nm <silent><leader>gc   <Plug>(coc-git-commit)
   nm <silent><leader>gs   <Plug>(coc-git-chunkinfo)
   nm <silent><leader>qf   <Plug>(coc-fix-current)
@@ -180,6 +188,22 @@ if dein#tap('projectile.vim')
 	nn \pl :ListProject<cr>
 	nn \pd :RemoveProject<cr>
 en
+if dein#tap('linediff.vim')
+  nn <silent><leader>ld :Linediff<cr>
+  nn <silent><leader>la :LinediffAdd<cr>
+  nn <silent><leader>ll :LinediffLast<cr>
+  nn <silent><leader>lm :LinediffMerge<cr>
+  nn <silent><leader>lp :LinediffPick<cr>
+  nn <silent><leader>ls :LinediffShow<cr>
+  nn <silent><leader>lr :LinediffReset<cr>
+  vn <silent><leader>ld :Linediff<cr>
+  vn <silent><leader>la :LinediffAdd<cr>
+  vn <silent><leader>ll :LinediffLast<cr>
+  vn <silent><leader>lm :LinediffMerge<cr>
+  vn <silent><leader>lp :LinediffPick<cr>
+  vn <silent><leader>ls :LinediffShow<cr>
+  vn <silent><leader>lr :LinediffReset<cr>
+en
 if dein#tap('vim-livedown')
 	nn <silent><leader>M :LivedownToggle<CR>
 endif
@@ -187,12 +211,17 @@ if dein#tap('bracey.vim')
 	nn <silent><Leader>P :Bracey<cr>
 endif
 if dein#tap('split-term.vim')
-  nn <silent><Leader>t :VTerm<cr>
-  nn <silent><Leader>T :Term<cr>
+  nn <silent><Leader>t :Term<cr>
+  nn <silent><Leader>T :VTerm<cr>
 en
-" if dein#tap('vista.vim')
-"   nn <silent><leader>v    :Vista!!<cr>
-" en
+if dein#tap('nuake')
+  nn <A-t> :Nuake<CR>
+  ino <A-t> <C-\><C-n>:Nuake<CR>
+  tno <A-t> <C-\><C-n>:Nuake<CR>
+en
+if dein#tap('vista.vim')
+  nn <silent><leader>V    :Vista!!<cr>
+en
 if dein#tap('tagbar')
   nn <silent><leader>v    :TagbarToggle<cr>
 en
@@ -226,7 +255,7 @@ nm <silent> ]g  <Plug>(coc-git-nextchunk)
 xm i/ <Plug>(textobj-comment-i)
 om i/ <Plug>(textobj-comment-i)
 xm a/ <Plug>(textobj-comment-a)
-xm a/ <Plug>(textobj-comment-a)
+om a/ <Plug>(textobj-comment-a)
 xm if <Plug>(coc-funcobj-i)
 om if <Plug>(coc-funcobj-i)
 xm af <Plug>(coc-funcobj-a)
@@ -235,9 +264,15 @@ xm ic <Plug>(coc-classobj-i)
 om ic <Plug>(coc-classobj-i)
 xm ac <Plug>(coc-classobj-a)
 om ac <Plug>(coc-classobj-a)
-om ih <Plug>(coc-git-chunk-inner)
 xm ih <Plug>(coc-git-chunk-inner)
-om ah <Plug>(coc-git-chunk-outer)
+om ih <Plug>(coc-git-chunk-inner)
 xm ah <Plug>(coc-git-chunk-outer)
+om ah <Plug>(coc-git-chunk-outer)
+
+" }}}
+" Abbreviations {{{
+
+cnorea vpy VTerm python
+cnorea tpy VTerm python
 
 " }}}

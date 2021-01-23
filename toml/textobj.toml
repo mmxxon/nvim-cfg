@@ -22,10 +22,10 @@ repo = 'jceb/vim-textobj-uri'
 
 [[plugins]]
 repo = 'terryma/vim-expand-region'
-depends = [ 
-	'vim-textobj-user', 
-	'vim-textobj-entire',  
-	'kana/vim-textobj-line', 
+depends = [
+	'vim-textobj-user',
+	'vim-textobj-entire',
+	'kana/vim-textobj-line',
 	'kana/vim-textobj-indent',
 	'rhysd/vim-textobj-anyblock'
 ]
@@ -39,6 +39,7 @@ hook_add = """
 		\ 'i]'  :1,
 		\ 'ii'	:1,
 		\ 'if'	:1,
+    \ 'af'  :1,
 		\ 'ib'  :1,
 		\ 'iB'  :1,
 		\ 'ip'  :0,

@@ -32,4 +32,6 @@ repo = 'vimlab/split-term.vim'
 on_cmd = ['Term', 'VTerm', 'TTerm']
 hook_add ='''
   let g:disable_key_mappings = 1
+  norea tr Term
+  norea vt VTerm
 '''

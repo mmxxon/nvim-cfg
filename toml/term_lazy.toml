@@ -30,3 +30,7 @@ hook_source = '''
 [[plugins]]
 repo = 'windwp/vim-floaterm-repl'
 on_cmd = 'FloatermRepl'
+
+[[plugins]]
+repo = 'Lenovsky/nuake'
+on_cmd = 'Nuake'
