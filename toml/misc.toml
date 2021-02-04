@@ -33,3 +33,11 @@ hook_add = '''
     au! Syntax * unlet! b:SyntaxRange_IncludedFiletypes
   augroup END
 '''
+
+[[plugins]]
+repo = 'lyokha/vim-xkbswitch'
+hook_add = '''
+let g:XkbSwitchEnabled = 1
+let g:XkbSwitchNLayout = 'us'
+let g:XkbSwitchSkipWinVar = ['float']
+'''

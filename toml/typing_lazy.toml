@@ -1,6 +1,9 @@
 [[plugins]]
 repo = 'tyru/caw.vim'
 on_map = '<Plug>(caw:'
+hook_add = '''
+let g:caw_operator_keymappings = 1
+'''
 
 [[plugins]]
 repo = 'tpope/vim-surround'

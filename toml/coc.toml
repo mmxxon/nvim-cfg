@@ -22,7 +22,8 @@ hook_add = '''
     \ 'coc-fs-lists',
     \ 'coc-diagnostic',
     \ 'coc-style-helper',
-    \ 'coc-scssmodules',
+    \ 'coc-css',
+    \ 'coc-cssmodules',
     \ 'coc-stylelintplus',
     \ 'coc-import-cost',
     \ 'coc-markdownlint',
@@ -34,12 +35,15 @@ hook_add = '''
     \ 'coc-tsserver',
     \ 'coc-rls',
     \ 'coc-cmake',
+    \ 'coc-sh',
+    \ 'coc-tailwindcss',
+    \ 'coc-stylelint',
+    \ 'coc-prettier',
     \ 'coc-tabnine',
     \ 'coc-snippets',
     \ 'coc-syntax',
     \ 'coc-conventional',
     \ 'coc-highlight',
-    \ 'coc-bookmark',
     \ 'coc-actions',
     \ 'coc-gitignore',
     \ 'coc-yank',
@@ -55,7 +59,9 @@ hook_add = '''
     \ 'coc-neosnippet',
     \ 'coc-ultisnips',
     \ 'coc-omnisharp',
-    \ 'coc-marketplace'
+    \ 'coc-marketplace',
+    \ 'coc-discord-rpc',
+    \ 'coc-tslint-plugin'
     \ ]
 
   " Abbreviations

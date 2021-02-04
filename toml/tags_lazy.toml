@@ -1,17 +1,17 @@
 [[plugins]]
 repo = 'ludovicchabant/vim-gutentags'
 if = "executable('ctags')"
-on_event = [ 'BufReadPost', 'BufWritePost' ]
+on_event = ['BufReadPost', 'BufWritePost']
 hook_add = '''
-  let g:gutentags_cache_dir = $DATA_PATH . '/tags'
-  let g:gutentags_generate_on_write = 0
-  let g:gutentags_generate_on_missing = 0
-  let g:gutentags_generate_on_new = 0
-	let g:gutentags_generate_on_empty_buffer = 0
-  let g:gutentags_exclude_project_root = [ '/usr/local' ]
-	let g:gutentags_ctags_extra_args = ['--tag-relative=yes']
-  let g:gutentags_exclude_filetypes = [ 'defx', 'denite', 'vista', 'magit' ]
-	let g:gutentags_ctags_exclude = ['.git', '.svg', '.hg', '/tests/', 'build', 'dist',
+    let g:gutentags_cache_dir = $DATA_PATH . '/tags'
+    let g:gutentags_generate_on_write = 0
+    let g:gutentags_generate_on_missing = 0
+    let g:gutentags_generate_on_new = 0
+    let g:gutentags_generate_on_empty_buffer = 0
+    let g:gutentags_exclude_project_root = [ '/usr/local' ]
+    let g:gutentags_ctags_extra_args = ['--tag-relative=yes']
+    let g:gutentags_exclude_filetypes = [ 'defx', 'denite', 'vista', 'magit' ]
+    let g:gutentags_ctags_exclude = ['.git', '.svg', '.hg', '/tests/', 'build', 'dist',
                         \ 'sites//files/', 'bin', 'node_modules', 'bower_components', 'cache',
                         \ 'compiled', 'docs', 'example', 'bundle', 'vendor', '.md',
                         \ '-lock.json', '.lock', 'bundle.js', 'build.js', '.rc', '.json',
@@ -28,40 +28,41 @@ repo = 'liuchengxu/vista.vim'
 on_cmd = 'Vista'
 depends = 'vim-markdown-toc'
 hook_add = '''
-	let g:vista_default_executive = 'coc'
-	let g:vista_executive_for = {
-		\ 'rust': 'coc',
-		\ 'c': 'ctags',
-		\ 'cpp': 'ctags',
-		\ 'go': 'coc',
-		\ 'typescript': 'coc',
-		\ 'javascript': 'coc',
-		\ 'json': 'coc',
-		\ 'yaml': 'coc',
-		\ 'elixir': 'coc',
-		\ 'markdown': 'toc',
-		\}
-	let g:vista_sidebar_width = 40
-	let g:vista#renderer#enable_icon = 1
-	let g:vista_update_on_text_changed = 1
-	let g:vista_echo_cursor_strategy = 'floating_win'
-	let g:vista_cursor_delay = 200
-	let g:vista_echo_cursor = 1
-	let g:vista_fzf_preview = ['right:50%']
-	autocmd FileType vista,vista_kind nnoremap <buffer> <silent> /
-		\ :<c-u>call vista#finder#fzf#Run()<CR>
+    let g:vista_default_executive = 'coc'
+    let g:vista_executive_for = {
+        \ 'rust': 'coc',
+        \ 'c': 'ctags',
+        \ 'cpp': 'ctags',
+        \ 'go': 'coc',
+        \ 'typescript': 'coc',
+        \ 'javascript': 'coc',
+        \ 'json': 'coc',
+        \ 'yaml': 'coc',
+        \ 'elixir': 'coc',
+        \ 'markdown': 'toc',
+        \}
+    let g:vista_sidebar_width = 40
+    let g:vista#renderer#enable_icon = 1
+    let g:vista_update_on_text_changed = 1
+    let g:vista_echo_cursor_strategy = 'floating_win'
+    let g:vista_cursor_delay = 200
+    let g:vista_echo_cursor = 1
+    let g:vista_fzf_preview = ['right:50%']
+    autocmd FileType vista,vista_kind nnoremap <buffer> <silent> /
+        \ :<c-u>call vista#finder#fzf#Run()<CR>
 '''
 
 [[plugins]]
 repo = 'preservim/tagbar'
 on_cmd = 'TagbarToggle'
 hook_add = '''
-	let g:tagbar_width = 50
-	let g:tagbar_map_openfold = [ 'zo', 'l' ]
-	let g:tagbar_map_closefold = [ 'zc', 'h' ]
-	let g:tagbar_map_openallfolds = [ 'zR', '+' ]
-	let g:tagbar_map_closeallfolds = [ 'zM', '_' ]
-	let tagbar_map_showproto = ''
-	let g:tagbar_show_tag_count = 1
-	let g:tagbar_iconchars = ['+', '-']
+    let g:tagbar_ctags_bin = 'ctags'
+    let g:tagbar_width = 50
+    let g:tagbar_map_openfold = [ 'zo', 'l' ]
+    let g:tagbar_map_closefold = [ 'zc', 'h' ]
+    let g:tagbar_map_openallfolds = [ 'zR', '+' ]
+    let g:tagbar_map_closeallfolds = [ 'zM', '_' ]
+    let tagbar_map_showproto = ''
+    let g:tagbar_show_tag_count = 1
+    let g:tagbar_iconchars = ['+', '-']
 '''

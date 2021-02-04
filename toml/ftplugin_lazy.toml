@@ -9,6 +9,9 @@ on_ft = 'requirements'
 [[plugins]]
 repo = 'turbio/bracey.vim'
 build = 'npm install --prefix server'
+# hook_add = '''
+#     let g:bracey_refresh_on_save = 1
+# '''
 on_ft = [ 'html', 'css', 'javascript' ]
 on_cmd = 'Bracey'
 

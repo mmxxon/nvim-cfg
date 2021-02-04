@@ -1,5 +1,4 @@
 {
-    "codeLens.enable": true,
     "coc.preferences.formatOnSaveFiletypes": [
         "python",
         "javascript",
@@ -9,19 +8,6 @@
         "cpp",
         "c"
     ],
-    "explorer.keyMappings.global": {
-        "u": "gotoParent",
-        "D": "delete",
-        ".": "toggleHidden"
-    },
-    "post.root": "~/work/posts",
-    "snippets.userSnippetsDirectory": "~/.config/nvim/snippets/",
-    "explorer.icon.enableNerdfont": true,
-    "explorer.filename.colored.enable": false,
-    "tabnine.limit": 3,
-    "coc.source.db.priority": 97,
-    "python.formatting.provider": "black",
-    "python.pythonPath": "/home/xon/.pyenv/shims/python",
     "coc.preferences.rootPatterns": [
         "main.py",
         "Makefile",
@@ -37,5 +23,27 @@
         ".gitignore",
         ".hg",
         ".projections.json"
-    ]
+    ],
+    "coc.source.db.priority": 97,
+    "python.formatting.provider": "black",
+    "python.pythonPath": "/home/xon/.pyenv/shims/python",
+    "snippets.userSnippetsDirectory": "~/.config/nvim/snippets/",
+    "codeLens.enable": true,
+    "explorer.keyMappings.global": {
+        "u": "gotoParent",
+        "D": "delete",
+        ".": "toggleHidden"
+    },
+    "explorer.icon.enableNerdfont": true,
+    "explorer.filename.colored.enable": false,
+    "post.root": "~/work/posts",
+    "tabnine.limit": 3,
+    "html.autoClosingTags": true,
+    "html.format.wrapLineLength": 90,
+    "html.format.preserveNewLines": false,
+    "html.format.extraLiners": "",
+    "rpc.idleText": "Dying (Idle)",
+    "rpc.workspaceElapsedTime": true,
+    "prettier.tabWidth": 4,
+    // "html.format.indentInnerHtml": true
 }

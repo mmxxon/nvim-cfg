@@ -12,6 +12,7 @@ if has('vim_starting')
 	if &rtp !~# $VIM_PATH
 		se rtp^=$VIM_PATH
 	endif
+
   nm <Space> <nop>
   xm <Space> <nop>
   nm \ <nop>
