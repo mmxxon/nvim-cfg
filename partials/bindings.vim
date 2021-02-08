@@ -91,9 +91,6 @@ if dein#tap('goyo.vim')
   nn <silent>zz :Goyo<cr>
 en
 if dein#tap('neosnippet.vim')
-  imap <silent><expr><C-k>
-        \ neosnippet#expandable_or_jumpable() ?
-        \ "\<Plug>(neosnippet_expand_or_jump)" : "\<C-k>"
   smap <silent><expr><C-k>
         \ neosnippet#expandable_or_jumpable() ?
         \ "\<Plug>(neosnippet_expand_or_jump)" : "\<C-k>"
@@ -115,7 +112,13 @@ if dein#tap('coc.nvim')
   nn <expr><c-j> coc#float#has_scroll() ? coc#float#scroll(1, 3) : "\<c-w><c-j>"
   ino <expr><c-j> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1, 3)\<cr>" : "\<c-w><c-j>"
   nn <expr><c-k> coc#float#has_scroll() ? coc#float#scroll(0, 3) : "\<c-w><c-k>"
-  ino <expr><c-k> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0, 3)\<cr>" : "\<c-w><c-k>"
+  imap <expr><c-k> coc#float#has_scroll() ?
+        \ "\<c-r>=coc#float#scroll(0, 3)\<cr>" :
+        \ dein#tap('neosnippet.vim') ?
+        \ neosnippet#expandable_or_jumpable() ?
+        \ "\<Plug>(neosnippet_expand_or_jump)" :
+        \ "\<C-w><C-k>" :
+        \ "\<C-w><C-k>"
   nn <expr><esc> coc#float#has_float() ?
     \ coc#float#close(coc#float#get_float_win()) : "\<esc>"
   ru plugcfg/cocfunc.vim
@@ -181,6 +184,7 @@ if dein#tap('coc.nvim')
   nn <silent><Leader>j    :CocNext<cr>
   nn <silent><Leader>k    :CocPrev<cr>
   nn <silent><Leader>m    :CocList bookmark<cr>
+  nn <silent><Leader>M    :CocList marketplace<cr>
   nn <silent><Leader>o    :CocList outline<cr>
   nn <silent><Leader>p    :CocListResume<cr>
   nn <silent><Leader>y    :CocList -A --normal yank<cr>
@@ -193,7 +197,6 @@ if dein#tap('coc.nvim')
   nn <silent><leader>fl   :call CocActionAsync('runCommand', 'fzf-preview.LocationList')<cr>
   nn <silent><leader>fq   :call CocActionAsync('runCommand', 'fzf-preview.QuickFix')<cr>
   nn <silent><leader>ft   :call CocActionAsync('runCommand', 'fzf-preview.BufferTags')<cr>
-  nn <silent><leader>fv   :call CocActionAsync('runCommand', 'fzf-preview.VistaCtags')<cr>
   nm <silent><leader>gc   <Plug>(coc-git-commit)
   nm <silent><leader>gs   <Plug>(coc-git-chunkinfo)
   nm <silent><leader>qf   <Plug>(coc-fix-current)
@@ -221,7 +224,7 @@ if dein#tap('linediff.vim')
   vn <silent><leader>lr :LinediffReset<cr>
 en
 if dein#tap('vim-livedown')
-  nn <silent><leader>M :LivedownToggle<CR>
+  nn <silent><leader>L :LivedownToggle<CR>
 endif
 if dein#tap('bracey.vim')
   nn <silent><Leader>B :Bracey<cr>

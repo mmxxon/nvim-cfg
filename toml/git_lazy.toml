@@ -3,6 +3,15 @@ repo = 'rhysd/committia.vim'
 on_path = [ 'COMMIT_EDITMSG', 'MERGE_MSG' ]
 hook_add = '''
 	let g:committia_min_window_width = 70
+    let g:committia_open_only_vim_starting = 0
+    function! s:should_open(ft) abort
+        return &ft ==# a:ft && (!g:committia_open_only_vim_starting || has('vim_starting')) && !exists('b:committia_opened')
+    endfunction
+
+    augroup plugin-committia
+        autocmd!
+        autocmd BufReadPost COMMIT_EDITMSG,MERGE_MSG if s:should_open('gitcommit') | call committia#open('git') | endif
+    augroup END
 '''
 
 [[plugins]]

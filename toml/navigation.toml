@@ -3,7 +3,10 @@ repo = 'andymass/vim-matchup'
 
 [[plugins]]
 repo = 'junegunn/fzf'
-hook_post_update = 'fzf#install()'
+build = '''
+./install -all
+'''
+
 
 [[plugins]]
 repo = 'junegunn/fzf.vim'

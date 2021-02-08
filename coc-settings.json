@@ -44,6 +44,5 @@
     "html.format.extraLiners": "",
     "rpc.idleText": "Dying (Idle)",
     "rpc.workspaceElapsedTime": true,
-    "prettier.tabWidth": 4,
-    // "html.format.indentInnerHtml": true
+    "prettier.tabWidth": 4
 }

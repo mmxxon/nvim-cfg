@@ -10,6 +10,7 @@ hook_add = '''
   let g:coc_snippet_prev = '<s-tab>'
   let g:coc_data_home = $DATA_PATH . '/coc'
   let g:coc_global_extensions = [
+    \ 'coc-vetur',
     \ 'coc-git',
     \ 'coc-explorer',
     \ 'coc-clangd',
@@ -44,7 +45,6 @@ hook_add = '''
     \ 'coc-syntax',
     \ 'coc-conventional',
     \ 'coc-highlight',
-    \ 'coc-actions',
     \ 'coc-gitignore',
     \ 'coc-yank',
     \ 'coc-tag',
