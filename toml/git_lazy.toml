@@ -15,7 +15,7 @@ hook_add = '''
 '''
 
 [[plugins]]
-repo = 'xon-dev/diffconflicts'
+repo = 'whiteinge/diffconflicts'
 on_cmd = [
 	'DiffConflicts',
 	'DiffConflictsShowHistory',

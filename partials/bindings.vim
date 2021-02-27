@@ -72,15 +72,15 @@ if dein#tap('accelerated-jk')
 en
 
 if dein#tap('vim-move')
-  nm <silent><A-j> <Plug>MoveLineDown
-  nm <silent><A-k> <Plug>MoveLineUp
-  vm <silent><A-j> <Plug>MoveBlockDown
-  vm <silent><A-k> <Plug>MoveBlockUp
+  nm <silent><M-j> <Plug>MoveLineDown
+  nm <silent><M-k> <Plug>MoveLineUp
+  vm <silent><M-j> <Plug>MoveBlockDown
+  vm <silent><M-k> <Plug>MoveBlockUp
 el
-  nn <A-j> :m .+1<CR>==
-  nn <A-k> :m .-2<CR>==
-  vn <A-j> :m '>+1<CR>gv=gv
-  vn <A-k> :m '<-2<CR>gv=gv
+  nn <M-j> :m .+1<CR>==
+  nn <M-k> :m .-2<CR>==
+  vn <M-j> :m '>+1<CR>gv=gv
+  vn <M-k> :m '<-2<CR>gv=gv
 en
 
 if dein#tap('vim-easymotion')
@@ -180,6 +180,7 @@ if dein#tap('coc.nvim')
   nn <silent><Leader>b    :CocList buffers<cr>
   nn <silent><Leader>D    :CocList diagnostics<cr>
   nn <silent><leader>e    :call CocActionAsync('runCommand', 'explorer')<cr>
+  nn <silent><leader>r    :CocCommand explorer --preset right<cr>
   nn <silent><Leader>g    :CocList gitignore<cr>
   nn <silent><Leader>j    :CocNext<cr>
   nn <silent><Leader>k    :CocPrev<cr>
@@ -200,7 +201,7 @@ if dein#tap('coc.nvim')
   nm <silent><leader>gc   <Plug>(coc-git-commit)
   nm <silent><leader>gs   <Plug>(coc-git-chunkinfo)
   nm <silent><leader>qf   <Plug>(coc-fix-current)
-  nm <silent><leader>rn   <Plug>(coc-rename)
+  nm <silent><leader>R   <Plug>(coc-rename)
 en
 if dein#tap('projectile.vim')
   nn \pp :AddProject<cr>
@@ -228,7 +229,6 @@ if dein#tap('vim-livedown')
 endif
 if dein#tap('bracey.vim')
   nn <silent><Leader>B :Bracey<cr>
-  nn <silent><Leader>R :BraceyReload<cr>
   nn <silent><M-b> :Bracey<cr>
   nn <silent><M-r> :BraceyReload<cr>
 elseif dein#tap('browserlink.vim')

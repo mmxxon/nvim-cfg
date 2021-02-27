@@ -26,7 +26,7 @@
     ],
     "coc.source.db.priority": 97,
     "python.formatting.provider": "black",
-    "python.pythonPath": "/home/xon/.pyenv/shims/python",
+    "python.formatting.blackPath": "/bin/black",
     "snippets.userSnippetsDirectory": "~/.config/nvim/snippets/",
     "codeLens.enable": true,
     "explorer.keyMappings.global": {
@@ -36,7 +36,6 @@
     },
     "explorer.icon.enableNerdfont": true,
     "explorer.filename.colored.enable": false,
-    "post.root": "~/work/posts",
     "tabnine.limit": 3,
     "html.autoClosingTags": true,
     "html.format.wrapLineLength": 90,
@@ -44,5 +43,8 @@
     "html.format.extraLiners": "",
     "rpc.idleText": "Dying (Idle)",
     "rpc.workspaceElapsedTime": true,
-    "prettier.tabWidth": 4
+    "prettier.tabWidth": 4,
+    "rpc.enabled": false,
+    "coc.preferences.formatOnType": true,
+    "prettier.singleQuote": true
 }
