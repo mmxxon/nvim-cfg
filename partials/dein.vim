@@ -5,8 +5,9 @@ if &runtimepath !~# '/dein.vim'
 	if !isdirectory(s:dein_repo)
 		exe '!git clone https://github.com/Shougo/dein.vim' shellescape(s:dein_repo)
 	endif
-	exe 'se rtp^=' . s:dein_repo
+  exe 'se rtp^=' . s:dein_repo
 endif
+
 
 fu! s:TOMLation(dir)
 	for s:path in split(globpath(a:dir, '*.toml'), '\n')

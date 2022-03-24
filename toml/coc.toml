@@ -1,9 +1,9 @@
 [[plugins]]
 repo = 'neoclide/coc.nvim'
-rev = 'master'
-# rev = 'release'
-if = '''executable('yarn')'''
-build = 'yarn install --frozen-lockfile'
+# rev = 'master'
+rev = 'release'
+# if = '''executable('yarn')'''
+# build = 'yarn install --frozen-lockfile'
 merged = 0
 hook_add = '''
   let g:coc_snippet_next = '<tab>'
