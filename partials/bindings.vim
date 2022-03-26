@@ -16,13 +16,13 @@ im <S-ScrollWheelDown> <nop>
 " Forward locations
 nn <c-y> <c-i>
 
-" Look
+" Resize
 nn <silent><C-up>     :res +1<cr>
 nn <silent><C-down>   :res -1<cr>
 nn <silent><C-right>  :vert res +1<cr>
 nn <silent><C-left>   :vert res -1<cr>
 
-" Resize
+" Look
 nn <silent><up>     2<c-y>
 nn <silent><down>   2<c-e>
 nn <silent><right>  2zl

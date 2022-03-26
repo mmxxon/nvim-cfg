@@ -11,13 +11,14 @@ hook_add = '''
   let g:coc_data_home = $DATA_PATH . '/coc'
   let g:coc_global_extensions = [
     \ 'coc-git',
+    \ 'coc-tsserver',
     \ 'coc-pyright',
+    \ 'coc-webpack',
     \ 'coc-vetur',
     \ 'coc-angular',
     \ 'coc-react-refactor',
     \ 'coc-postfix',
     \ 'coc-jest',
-    \ 'coc-explorer',
     \ 'coc-clangd',
     \ 'coc-css',
     \ 'coc-cssmodules',
@@ -25,21 +26,21 @@ hook_add = '''
     \ 'coc-json',
     \ 'coc-toml',
     \ 'coc-html',
+    \ 'coc-lit-html',
+    \ 'coc-markdownlint',
+    \ 'coc-vimlsp',
+    \ 'coc-cmake',
+    \ 'coc-explorer',
+    \ 'coc-rls',
+    \ 'coc-sh',
+    \ 'coc-sql',
     \ 'coc-fzf-preview',
     \ 'coc-diagnostic',
     \ 'coc-style-helper',
     \ 'coc-stylelintplus',
     \ 'coc-import-cost',
-    \ 'coc-markdownlint',
-    \ 'coc-lit-html',
-    \ 'coc-vimlsp',
-    \ 'coc-tsserver',
-    \ 'coc-rls',
-    \ 'coc-cmake',
-    \ 'coc-sh',
     \ 'coc-stylelint',
     \ 'coc-prettier',
-    \ 'coc-tabnine',
     \ 'coc-snippets',
     \ 'coc-syntax',
     \ 'coc-word',
@@ -48,7 +49,6 @@ hook_add = '''
     \ 'coc-gitignore',
     \ 'coc-yank',
     \ 'coc-tag',
-    \ 'coc-sql',
     \ 'coc-db',
     \ 'coc-lists',
     \ 'coc-eslint',
@@ -58,7 +58,8 @@ hook_add = '''
     \ 'coc-omnisharp',
     \ 'coc-marketplace',
     \ 'coc-discord-rpc',
-    \ 'coc-tslint-plugin'
+    \ 'coc-tslint-plugin',
+    \ 'coc-project'
     \ ]
 
     let g:coc_explorer_global_presets = {
@@ -78,7 +79,7 @@ hook_add = '''
   aug xon_coc_nvim
     au!
     au CursorHold * :silent! call CocActionAsync('highlight')
-    au CursorHold * :silent! CocCommand git.refresh
+    au CursorHold * :silent! call coc#rpc#notify('runCommand', [git.refresh])
     au FileType typescript,json setl formatexpr=CocAction('formatSelected')
     au User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
     autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | endif
