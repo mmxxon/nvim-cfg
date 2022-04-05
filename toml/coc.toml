@@ -59,7 +59,6 @@ hook_add = '''
     \ 'coc-marketplace',
     \ 'coc-discord-rpc',
     \ 'coc-tslint-plugin',
-    \ 'coc-project'
     \ ]
 
     let g:coc_explorer_global_presets = {
